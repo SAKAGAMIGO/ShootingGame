@@ -12,8 +12,6 @@ public class HealthGuage : MonoBehaviour
     //赤色のバー
     [SerializeField] private Image burnImage;
 
-    [SerializeField] GameObject hitPoint;
-
     //HPが減る時間
     public float duration = 0.5f;
     //最大HP
@@ -24,13 +22,6 @@ public class HealthGuage : MonoBehaviour
     public float strength = 20f;
     //バーが揺れる強さ
     public int vibrate = 100;
-
-    private GameObject gameObject;
-
-    private void Start()
-    {
-        gameObject = GameObject.Find("HitPoint");
-    }
 
     public void SetGuage(float targetRate)
     {
@@ -49,11 +40,11 @@ public class HealthGuage : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (!collision.gameObject.CompareTag("Player"))
-        {
-            TakeDamage(_damage);
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (!collision.gameObject.CompareTag("Player"))
+    //    {
+    //        TakeDamage(_damage);
+    //    }
+    //}
 }

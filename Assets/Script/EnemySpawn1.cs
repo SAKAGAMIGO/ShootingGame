@@ -9,25 +9,25 @@ public class EnemySpawn1 : MonoBehaviour
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] GameObject upeer;
     [SerializeField] GameObject low;
-    
+
+
     void Start()
     {
-        //Spawn‚ğ0.8•bŠÔŠu‚ÅÀs
+        //Spawn‚ğ1•bŠÔŠu‚ÅÀs
         InvokeRepeating("Spawn", 0.8f, 0.8f);
     }
 
-
     void Update()
     {
-        
+
     }
 
     //Enemy‚ğ¶¬
     private void Spawn()
     {
         //ƒ‰ƒ“ƒ_ƒ€‚Èx²‚ğæ“¾
-        Vector2 randomPos = new Vector2(Random.Range(upeer.transform.position.x,low.transform.position.x), Random.Range(upeer.transform.position.y, low.transform.position.y));
-        GameObject _enemy =  Instantiate(enemyPrefab); 
+        Vector2 randomPos = new Vector2(Random.Range(upeer.transform.position.x, low.transform.position.x), Random.Range(upeer.transform.position.y, low.transform.position.y));
+        GameObject _enemy = Instantiate(enemyPrefab);
         _enemy.transform.position = randomPos;
     }
 }

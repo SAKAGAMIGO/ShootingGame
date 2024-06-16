@@ -82,7 +82,7 @@ public class EnemyManager1 : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            _health -= 100;
+            _health -= 100f;
         }
     }
 }

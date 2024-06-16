@@ -11,7 +11,6 @@ public class EnemySpawn2 : MonoBehaviour
     [SerializeField] GameObject low;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         //Spawn‚ğ1•bŠÔŠu‚ÅÀs
