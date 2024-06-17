@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 159037170660285052}
   m_Layer: 0
   m_Name: Laser
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 1325023228419915391}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 19.67, y: -3.87, z: 0}
-  m_LocalScale: {x: 1, y: 4.099268, z: 1}
+  m_LocalPosition: {x: 19.4128, y: -3.0185, z: 0}
+  m_LocalScale: {x: 2.703, y: 4.613726, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -129,7 +129,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.11, y: 0.02}
@@ -143,7 +143,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.18, y: 0.71}
+  m_Size: {x: 0.18, y: 0.7}
   m_EdgeRadius: 0
 --- !u!50 &159037170660285052
 Rigidbody2D:

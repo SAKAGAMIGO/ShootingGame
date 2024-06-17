@@ -5,13 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameController2 : MonoBehaviour
 {
-   // [SerializeField] GameObject stageCanvas;
     [SerializeField] GameObject titleCanvas;
 
-    // Start is called before the first frame update
     void Start()
     {
-       // stageCanvas.SetActive(false);
+       
     }
 
     // Update is called once per frame
@@ -26,7 +24,6 @@ public class GameController2 : MonoBehaviour
 
     public void StageSelectUiActive()
     {
-       // stageCanvas.SetActive(true);
         titleCanvas.SetActive(false);
     }
     public void Stage1()

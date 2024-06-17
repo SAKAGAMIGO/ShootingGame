@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossManager : MonoBehaviour
 {
@@ -17,17 +18,11 @@ public class BossManager : MonoBehaviour
         _health -= damage;
     }
 
-    //private void Move()
-    //{
-    //    transform.position = move;
-    //}
-
     void Start()
     {
         _gameController = GameObject.Find("GameController").GetComponent<GameController>();
-        //Move();
+        
     }
-
 
     void Update()
     {
@@ -38,7 +33,8 @@ public class BossManager : MonoBehaviour
             //Instantiate(explosion, transform.position, transform.rotation);
             //”j‰ó‚³‚ê‚é
             Destroy(this.gameObject);
-            _gameController.GameClear();
+            //ClearScene‚É’µ‚Ô
+            SceneManager.LoadScene("ClearScene");
         }
     }
 

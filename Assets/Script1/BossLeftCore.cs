@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossCanon : MonoBehaviour
+public class BossLeftCore : MonoBehaviour
 {
     //ゲームオブジェクトを取得
-    //public GameObject bulletPrefab;
+    public GameObject bulletPrefab;
     public GameObject Muzzle;
 
     //爆発のエフェクト
@@ -18,6 +18,7 @@ public class BossCanon : MonoBehaviour
     //GameController取得
     GameController _gameController;
 
+    private int count = 0;
     //ダメージを与える
     public void AddDamage(float damage)
     {
@@ -33,6 +34,9 @@ public class BossCanon : MonoBehaviour
 
     void Update()
     {
+        count++;
+
+        Shot();
         //HPが0になったら実行
         if (_health <= 0)
         {
@@ -44,11 +48,14 @@ public class BossCanon : MonoBehaviour
     }
 
     //Bulletを生成
-    //private void Shot()
-    //{
-    //    GameObject _bullet = Instantiate(bulletPrefab);
-    //    _bullet.transform.position = Muzzle.transform.position;
-    //}
+    private void Shot()
+    {
+        if (count % 600 == 0)
+        {
+            GameObject _bullet = Instantiate(bulletPrefab);
+            _bullet.transform.position = Muzzle.transform.position;
+        }
+    }
 
     //Playerに当たったら実行
     private void OnCollisionEnter2D(Collision2D collision)

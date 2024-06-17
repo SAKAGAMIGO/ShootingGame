@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Laser : MonoBehaviour
+public class BossBullet1 : MonoBehaviour
 {
     //Bulletのスピード
     public int bulletSpeed = 8;
@@ -41,6 +41,7 @@ public class Laser : MonoBehaviour
             collision.gameObject.GetComponent<PlayerManager>().AddDamage(10f);
             //このオブジェクトが破壊される
             Destroy(this.gameObject);
+
         }
     }
 }
