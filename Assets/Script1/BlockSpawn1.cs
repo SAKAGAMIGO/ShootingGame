@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockSpawn : MonoBehaviour
+public class BlockSpawn1 : MonoBehaviour
 {
     //ゲームオブジェクトを取得
-    [SerializeField] GameObject blockPrefab;
+    [SerializeField] GameObject blockPrefab1;
     [SerializeField] GameObject upeer;
     [SerializeField] GameObject low;
     
@@ -25,7 +25,7 @@ public class BlockSpawn : MonoBehaviour
     {
         //ランダムなx軸を取得
         Vector2 randomPos = new Vector2(Random.Range(upeer.transform.position.x, low.transform.position.x), Random.Range(upeer.transform.position.y, low.transform.position.y));
-        GameObject _enemy = Instantiate(blockPrefab);
+        GameObject _enemy = Instantiate(blockPrefab1);
         _enemy.transform.position = randomPos;
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyManager2 : MonoBehaviour
 {
     //Enemyの移動速度
-    [SerializeField] int moveSpeed ;
+    [SerializeField] int moveSpeed;
 
     //ゲームオブジェクトを取得
     public GameObject bulletPrefab;
@@ -19,6 +19,9 @@ public class EnemyManager2 : MonoBehaviour
     float _health = 300f;
     public float HP => _health;
 
+    //GameController取得
+    GameController _gameController;
+
     //ダメージを与える
     public void AddDamage(float damage)
     {
@@ -28,6 +31,7 @@ public class EnemyManager2 : MonoBehaviour
     //Enemyが生成されるとEnemyBulletも生成される
     private void Start()
     {
+        _gameController = GameObject.Find("GameController").GetComponent<GameController>();
         Shot1();
         Shot2();
     }
@@ -93,5 +97,10 @@ public class EnemyManager2 : MonoBehaviour
         {
             _health -= 100f;
         }
+    }
+
+    public void OnDestroy()
+    {
+        //_gameController.AddScore();
     }
 }

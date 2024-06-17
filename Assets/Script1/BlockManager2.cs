@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockManagerSmall : MonoBehaviour
+public class BlockManager2: MonoBehaviour
 {
     //Blockの移動速度
     [SerializeField] float moveSpeed;
@@ -14,6 +14,9 @@ public class BlockManagerSmall : MonoBehaviour
     float _health = 300f;
     public float HP => _health;
 
+    //GameController取得
+    GameController _gameController;
+
     //ダメージを与える
     public void AddDamage(float damage)
     {
@@ -22,7 +25,7 @@ public class BlockManagerSmall : MonoBehaviour
 
     void Start()
     {
-
+        _gameController = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
     // Update is called once per frame
@@ -75,5 +78,10 @@ public class BlockManagerSmall : MonoBehaviour
         {
             _health -= 100f;
         }
+    }
+
+    public void OnDestroy()
+    {
+        //_gameController.AddScore();
     }
 }

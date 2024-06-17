@@ -44,8 +44,6 @@ public class Bullet : MonoBehaviour
         if(!collision.gameObject.CompareTag("Player"))
         { 
             Destroy(this.gameObject) ;
-            gameController.AddScore();
         }
     }
-    
 }

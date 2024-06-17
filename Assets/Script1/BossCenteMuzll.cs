@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScrollBack : MonoBehaviour
+public class BossCenteMuzll : MonoBehaviour
 {
+    // Start is called before the first frame update
     void Start()
     {
         
@@ -12,7 +13,6 @@ public class ScrollBack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //スクロールするスピード
-        this.transform.Translate(-0.02f,0,0);
+        
     }
 }

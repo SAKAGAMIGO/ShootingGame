@@ -9,7 +9,7 @@ public class BossManager : MonoBehaviour
     float _health = 20000f;
     public float HP => _health;
 
-    public GameController _gameController;
+    GameController _gameController;
 
     //É_ÉÅÅ[ÉWÇó^Ç¶ÇÈ
     public void AddDamage(float damage)
@@ -24,6 +24,7 @@ public class BossManager : MonoBehaviour
 
     void Start()
     {
+        _gameController = GameObject.Find("GameController").GetComponent<GameController>();
         //Move();
     }
 

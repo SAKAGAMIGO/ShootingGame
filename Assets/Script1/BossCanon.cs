@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager1 : MonoBehaviour
+public class BossCanon : MonoBehaviour
 {
-    //Enemyの移動速度
-    [SerializeField] int moveSpeed ;
-
     //ゲームオブジェクトを取得
-    public GameObject bulletPrefab;
+    //public GameObject bulletPrefab;
     public GameObject Muzzle;
 
     //爆発のエフェクト
     public GameObject explosion;
 
     //Enemyの最大HP
-    float _health = 300f;
+    float _health = 2000f;
     public float HP => _health;
+
+    //GameController取得
+    GameController _gameController;
 
     //ダメージを与える
     public void AddDamage(float damage)
@@ -28,13 +28,11 @@ public class EnemyManager1 : MonoBehaviour
     //Enemyが生成されるとEnemyBulletも生成される
     private void Start()
     {
-        Shot();
+        _gameController = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
     void Update()
     {
-        Move();
-        OffScreen();
         //HPが0になったら実行
         if (_health <= 0)
         {
@@ -45,28 +43,12 @@ public class EnemyManager1 : MonoBehaviour
         }
     }
 
-    //Enemyを左に移動させる
-    private void Move()
-    {
-        transform.position +=
-            new Vector3(-moveSpeed, 0, 0) * Time.deltaTime;
-    }
-
-    //Enemyが画面外に出たら消滅
-    private void OffScreen()
-    {
-        if (this.transform.position.x < -10f)
-        {
-            Destroy(this.gameObject);
-        }
-    }
-
     //Bulletを生成
-    private void Shot()
-    {
-        GameObject _bullet = Instantiate(bulletPrefab);
-        _bullet.transform.position = Muzzle.transform.position;
-    }
+    //private void Shot()
+    //{
+    //    GameObject _bullet = Instantiate(bulletPrefab);
+    //    _bullet.transform.position = Muzzle.transform.position;
+    //}
 
     //Playerに当たったら実行
     private void OnCollisionEnter2D(Collision2D collision)
@@ -84,5 +66,10 @@ public class EnemyManager1 : MonoBehaviour
         {
             _health -= 100f;
         }
+    }
+
+    public void OnDestroy()
+    {
+        _gameController.AddScore();
     }
 }
