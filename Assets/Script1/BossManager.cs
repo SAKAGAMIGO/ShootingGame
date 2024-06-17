@@ -5,49 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class BossManager : MonoBehaviour
 {
-   // private Vector3 move = Vector3(5,0,0);
-    //Enemyの最大HP
-    float _health = 20000f;
-    public float HP => _health;
-
-    GameController _gameController;
-
-    //ダメージを与える
-    public void AddDamage(float damage)
-    {
-        _health -= damage;
-    }
-
+    public GameObject player;  //①動かしたいオブジェクトをインスペクターから入れる。
+    public int speed = 5;  //オブジェクトが自動で動くスピード調整
+    Vector3 movePosition;  //②オブジェクトの目的地を保存
     void Start()
     {
-        _gameController = GameObject.Find("GameController").GetComponent<GameController>();
-        
+        movePosition = moveRandomPosition();  //②実行時、オブジェクトの目的地を設定
     }
 
     void Update()
     {
-        //HPが0になったら実行
-        if (_health <= 0)
+        if (movePosition == player.transform.position)  //②playerオブジェクトが目的地に到達すると、
         {
-            //破壊のエフェクト
-            //Instantiate(explosion, transform.position, transform.rotation);
-            //破壊される
-            Destroy(this.gameObject);
-            //ClearSceneに跳ぶ
-            SceneManager.LoadScene("ClearScene");
+            movePosition = moveRandomPosition();  //②目的地を再設定
         }
+        this.player.transform.position = Vector3.MoveTowards(player.transform.position, movePosition, speed * Time.deltaTime);  //①②playerオブジェクトが, 目的地に移動, 移動速度
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private Vector3 moveRandomPosition()  // 目的地を生成、xとyのポジションをランダムに値を取得 
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            //Playerにダメージを与える
-            collision.gameObject.GetComponent<PlayerManager>().AddDamage(10f);
-        }
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            _health -= 100f;
-        }
+        Vector3 randomPosi = new Vector3(Random.Range(-7, 7), Random.Range(-4, 4), 5);
+        return randomPosi;
     }
 }
