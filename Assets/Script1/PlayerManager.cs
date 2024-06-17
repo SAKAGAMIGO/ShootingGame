@@ -52,9 +52,7 @@ public class PlayerManager : MonoBehaviour
     // 左クリックを押すとBulletが生成される
     void Update()
     {
-        //Move();
         _interval += Time.deltaTime;
-        //Move();
         if (_interval >= _intervalMax && Input.GetButton("Fire1"))
         {
             Instantiate(bulletPrefab, //生成したいオブジェクト

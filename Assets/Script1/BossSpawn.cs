@@ -8,7 +8,7 @@ public class BossSpawn : MonoBehaviour
     
     void Start()
     {
-        Instantiate(_bossPrefab,transform.position,transform.rotation);
+        Instantiate(_bossPrefab,_bossPrefab.transform.position,_bossPrefab.transform.rotation);
     }
 
     void Update()
