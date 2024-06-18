@@ -10,19 +10,26 @@ public class EnemySpawn2 : MonoBehaviour
     [SerializeField] GameObject upeer;
     [SerializeField] GameObject low;
 
+    [SerializeField] float interval;
+    float timer;
 
     void Start()
     {
         //Spawn‚ğ1•bŠÔŠu‚ÅÀs
-        InvokeRepeating("Spawn", 2f, 2f);
     }
 
     void Update()
     {
+        timer += Time.deltaTime;
 
+        if(timer > interval)
+        {
+            Spawn();
+            timer = 0;
+        }
     }
 
-    //Enemy‚ğ¶¬
+    //Enemy‚ğUpeer‚ÆLow‚ÌŠÔ‚Åƒ‰ƒ“ƒ_ƒ€‚É¶¬
     private void Spawn()
     {
         //ƒ‰ƒ“ƒ_ƒ€‚Èx²‚ğæ“¾

@@ -9,16 +9,25 @@ public class BlockSpawn2 : MonoBehaviour
     [SerializeField] GameObject _upeer;
     [SerializeField] GameObject _low;
 
+    [SerializeField] float interval;
+    float timer;
+
     void Start()
     {
         //Spawn‚ð2•bŠÔŠu‚ÅŽÀs
-        InvokeRepeating("Spawn", 2f, 2f);
     }
 
 
     void Update()
     {
+        //Spawn‚ð2•bŠÔŠu‚ÅŽÀs
+        timer += Time.deltaTime;
 
+        if (timer > interval)
+        {
+            Spawn();
+            timer = 0;
+        }
     }
 
     private void Spawn()

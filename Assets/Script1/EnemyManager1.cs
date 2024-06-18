@@ -15,7 +15,7 @@ public class EnemyManager1 : MonoBehaviour
     public GameObject explosion;
 
     //Enemy‚ÌÅ‘åHP
-    float _health = 300f;
+    float _health = 100f;
     public float HP => _health;
 
     //GameControlleræ“¾

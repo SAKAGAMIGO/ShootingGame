@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc304dafbde81243bd56275be7476f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 7
   bulletPrefab: {fileID: 262642074509969410, guid: f14e3dd201bd00d4d99bf76d6d5054cb,
     type: 3}
   Muzzle1: {fileID: 3761668676475256708}

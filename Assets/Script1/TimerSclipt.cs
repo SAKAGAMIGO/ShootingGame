@@ -14,57 +14,23 @@ public class TimerScript : MonoBehaviour
     //　タイマー表示用テキスト
     private Text _timerText;
 
-    private bool _isTime;
 
     //EnemyのSponer
     public GameObject _enemySpawn1;
-    public GameObject _upeer1;
-    public GameObject _low1;
     public GameObject _enemySpawn2;
-    public GameObject _upeer2;
-    public GameObject _low2;
     public GameObject _enemySpawn3;
     public GameObject _blockSpawn;
-    public GameObject _upeer3;
-    public GameObject _low3;
     public GameObject _blockSpawnSmall;
-    public GameObject _uper4;
-    public GameObject _low4;
-
-    //public GameObject _enemy1;
-    //public GameObject _enemy2;
-    //public GameObject _enemy3;
-    //public GameObject _block1;
-    //public GameObject _block2;
+    public GameObject _bossSpawn;
 
     void Start()
     {
+        StartCoroutine(Timer());
+
         _minute = 0;
         _seconds = 0f;
         _oldSeconds = 0f;
         _timerText = GetComponentInChildren<Text>();
-
-        //ゲーム起動時にObjectを非表示にする
-        _enemySpawn1.SetActive(false);
-        _upeer1.SetActive(false);
-        _low1.SetActive(false);
-        Debug.Log("作動");
-        _enemySpawn2.SetActive(false);
-        _upeer2.SetActive(false);
-        _low2.SetActive(false);
-        _enemySpawn3.SetActive(false);
-        _blockSpawn.SetActive(false);
-        _upeer3.SetActive(false);
-        _low3.SetActive(false);
-        _blockSpawnSmall.SetActive(false);
-        _uper4.SetActive(false);
-        _low4.SetActive(false);
-
-        //_enemy1.SetActive(false);
-        //_enemy2.SetActive(false);
-        //_enemy3.SetActive(false);
-        //_block1.SetActive(false);
-        //_block2.SetActive(false);
     }
 
     void Update()
@@ -84,28 +50,76 @@ public class TimerScript : MonoBehaviour
         if ((int)_seconds != (int)_oldSeconds)
         {
             _timerText.text = _minute.ToString("00") + ":" + ((int)_seconds).ToString("00");
+
         }
         _oldSeconds = _seconds;
 
+
+
     }
-    public void Timer()
+    public IEnumerator Timer()
     {
-        //5秒以上でEnemy1を出現
-        if (_seconds >= 5.0f)
-        {
-            _enemySpawn1.SetActive(true);
-            _upeer1.SetActive(true);
-            _low1.SetActive(true);
-            _isTime = true;
-            Debug.Log("作動");
+        //ゲーム起動時にObjectを非表示にする
+        _enemySpawn1.SetActive(false);
+        Debug.Log("作動");
+        _enemySpawn2.SetActive(false);
+        _enemySpawn3.SetActive(false);
+        _blockSpawn.SetActive(false);
+        _blockSpawnSmall.SetActive(false);
+        _bossSpawn.SetActive(false);
 
-            //_enemy1.SetActive(true);
-        }
-        else if (_seconds >= 20f)
-        {
-            //_enemySpawn1.SetActive(false);
+    //3秒暇
+    yield return new WaitForSeconds(2);
+        //Enemy1が10秒間出現
+        _enemySpawn1.SetActive(true);
+        //Enemy2が10秒間出現
+        _enemySpawn2.SetActive(true);
+        //Bossが65秒後に出現
+        _bossSpawn.SetActive(true);
+        yield return new WaitForSeconds(20);
+        _enemySpawn1.SetActive(false) ;
+        _enemySpawn2.SetActive(false);
 
-        }
+        yield return new WaitForSeconds(1);
+
+        _enemySpawn3.SetActive(true);
+        yield return new WaitForSeconds(1);
+        _enemySpawn3.SetActive(false) ;
+
+        yield return new WaitForSeconds(1);
+
+        _enemySpawn3.SetActive(true) ;
+        yield return new WaitForSeconds(1);
+        _enemySpawn3.SetActive(false) ;
+
+        yield return new WaitForSeconds(1);
+
+        _enemySpawn3.SetActive(true);
+        yield return new WaitForSeconds(1);
+        _enemySpawn3.SetActive(false);
+
+        yield return new WaitForSeconds(1);
+
+        _enemySpawn3.SetActive(true);
+        yield return new WaitForSeconds(1);
+        _enemySpawn3.SetActive(false);
+
+        yield return new WaitForSeconds(1);
+
+        _blockSpawn.SetActive(true);
+        _blockSpawnSmall.SetActive(true);
+        _enemySpawn1.SetActive(true);
+        yield return new WaitForSeconds(20);
+        _enemySpawn1.SetActive(false);
+
+        yield return new WaitForSeconds(1);
+
+        _enemySpawn1.SetActive(true);
+        _enemySpawn2.SetActive(true) ;
+        yield return new WaitForSeconds(10);
+        _enemySpawn1.SetActive(false);
+        _enemySpawn2.SetActive(false) ;
+        _blockSpawn.SetActive(false);
+        _blockSpawnSmall.SetActive(false);
     }
-
 }
