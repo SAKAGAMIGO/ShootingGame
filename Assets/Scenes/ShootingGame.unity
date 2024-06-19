@@ -1000,6 +1000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bd38f27f7f6f349a2d8a4313dbbefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _boss: {fileID: 0}
   gameOverText: {fileID: 1721393931}
   gameClearText: {fileID: 598094500}
   scoreText: {fileID: 1262552123}
@@ -2221,7 +2222,7 @@ PrefabInstance:
     - target: {fileID: 8462109692825529051, guid: fbb3ec03356733a49bd837a9624d9d13,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

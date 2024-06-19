@@ -25,11 +25,14 @@ public class BossRightCore : MonoBehaviour
         _health -= damage;
     }
 
+    BossManager _manager;
+
 
     //EnemyÇ™ê∂ê¨Ç≥ÇÍÇÈÇ∆EnemyBulletÇ‡ê∂ê¨Ç≥ÇÍÇÈ
     private void Start()
     {
         _gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        _manager = GetComponentInParent<BossManager>();
     }
 
     void Update()
@@ -78,5 +81,6 @@ public class BossRightCore : MonoBehaviour
     public void OnDestroy()
     {
         _gameController.AddScore();
+        _manager.Count();
     }
 }

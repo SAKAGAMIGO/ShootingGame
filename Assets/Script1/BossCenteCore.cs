@@ -18,18 +18,22 @@ public class BossCenterCore : MonoBehaviour
     //GameController取得
     GameController _gameController;
 
-    private int count = 0;
+    public int count = 0;
     //ダメージを与える
     public void AddDamage(float damage)
     {
         _health -= damage;
     }
 
+    BossManager _manager;
 
     //Enemyが生成されるとEnemyBulletも生成される
-    private void Start()
+    public void Start()
     {
         _gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        _manager = GetComponentInParent<BossManager>();
+        if (!_manager) Debug.Log("manager not found.");
+
     }
 
     void Update()
@@ -58,7 +62,7 @@ public class BossCenterCore : MonoBehaviour
     }
 
     //Playerに当たったら実行
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -68,6 +72,7 @@ public class BossCenterCore : MonoBehaviour
             Destroy(this.gameObject);
             //破壊のエフェクト
             Instantiate(explosion, transform.position, transform.rotation);
+
         }
         if (collision.gameObject.CompareTag("Bullet"))
         {
@@ -78,5 +83,6 @@ public class BossCenterCore : MonoBehaviour
     public void OnDestroy()
     {
         _gameController.AddScore();
+        _manager.Count();
     }
 }

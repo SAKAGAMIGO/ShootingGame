@@ -8,6 +8,7 @@ using Unity.VisualScripting;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] GameObject _boss;
     public GameObject gameOverText;
     public GameObject gameClearText;
     public Text scoreText;
@@ -17,11 +18,13 @@ public class GameController : MonoBehaviour
     private bool isGameClear;
 
 
-
     TimerScript _timerScript;
+
+
 
     void Start()
     {
+
         //TimerScript‚ðŽæ“¾
         _timerScript = GameObject.FindAnyObjectByType<TimerScript>();
 
@@ -41,27 +44,23 @@ public class GameController : MonoBehaviour
     }
 
     //GameOverText‚ðŽæ“¾
-    public void GameOver() 
+    public void GameOver()
     {
         gameOverText.SetActive(true);
         isGameOver = true;
     }
 
-    public void GameClear()
+    public static void GameClear()
     {
-        gameClearText.SetActive(true);
-        isGameClear = true;
+        SceneManager.LoadScene("ClearScene");
     }
 
     //Game‚ÌRetry
     private void Update()
     {
-        if (isGameOver)
-        { 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                SceneManager.LoadScene("Shooting Game");
-            }
+        if (isGameOver && Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene("ShootingGame");
         }
     }
 }

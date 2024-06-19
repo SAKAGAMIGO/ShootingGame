@@ -102,6 +102,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40158235ee9bbf24bb28c66cfbf58f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bossDestroyAudio: {fileID: 8300000, guid: ca63c46a9fdaa1044a564729b8fa9d24, type: 3}
+  _centerCore: {fileID: 2988859418291606732}
+  _leftCore: {fileID: 7742520307589434919}
+  _rightCore: {fileID: 5081570139953924113}
+  _count: 3
   player: {fileID: 293157819022756416}
   speed: 3
 --- !u!50 &-2130098266399400824
@@ -434,6 +439,7 @@ MonoBehaviour:
   Muzzle: {fileID: 2021263391548339120}
   explosion: {fileID: 1289990519317594133, guid: 443a5492183bde14bb1041523edd94aa,
     type: 3}
+  count: 3
 --- !u!58 &4058220263280260545
 CircleCollider2D:
   m_ObjectHideFlags: 0

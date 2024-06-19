@@ -61,7 +61,6 @@ public class TimerScript : MonoBehaviour
     {
         //ƒQ[ƒ€‹N“®‚ÉObject‚ğ”ñ•\¦‚É‚·‚é
         _enemySpawn1.SetActive(false);
-        Debug.Log("ì“®");
         _enemySpawn2.SetActive(false);
         _enemySpawn3.SetActive(false);
         _blockSpawn.SetActive(false);
