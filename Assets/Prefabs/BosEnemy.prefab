@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40158235ee9bbf24bb28c66cfbf58f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bossDestroyAudio: {fileID: 8300000, guid: ca63c46a9fdaa1044a564729b8fa9d24, type: 3}
+  _bossDestroyAudio: {fileID: 8300000, guid: 95efba0afd951824d8fe8b93d1212b6a, type: 3}
   _centerCore: {fileID: 2988859418291606732}
   _leftCore: {fileID: 7742520307589434919}
   _rightCore: {fileID: 5081570139953924113}
@@ -364,7 +364,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -0.004153831, y: -0.15323082, z: 0}
-  m_LocalScale: {x: 0.06923074, y: 0.06923074, z: 0.069230765}
+  m_LocalScale: {x: -0.09000001, y: -0.09000001, z: -0.09000001}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5176759257105538203}
@@ -534,8 +534,8 @@ Transform:
   m_GameObject: {fileID: 5081570139953924113}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.33538464, y: -0.13846181, z: 0}
-  m_LocalScale: {x: 0.053846136, y: 0.053846136, z: 0.05384615}
+  m_LocalPosition: {x: -0.23, y: -0.072, z: 0}
+  m_LocalScale: {x: 0.09, y: 0.09, z: 0.09}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1177011771543761677}
@@ -672,14 +672,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7742520307589434919}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.327, y: -0.138, z: 0}
-  m_LocalScale: {x: 0.053846136, y: 0.053846136, z: 0.05384615}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.233, y: -0.064, z: 0}
+  m_LocalScale: {x: 0.09000001, y: 0.09000001, z: 0.09000001}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2325343037455615595}
   m_Father: {fileID: 4502388833383702506}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &3378756127743889350
 SpriteRenderer:
   m_ObjectHideFlags: 0

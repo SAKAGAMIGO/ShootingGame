@@ -53,7 +53,7 @@ public class BossLeftCore : MonoBehaviour
     //Bulletを生成
     private void Shot()
     {
-        if (count % 600 == 0)
+        if (count % 400 == 0)
         {
             GameObject _bullet = Instantiate(bulletPrefab);
             _bullet.transform.position = Muzzle.transform.position;
@@ -67,14 +67,12 @@ public class BossLeftCore : MonoBehaviour
         {
             //Playerにダメージを与える
             collision.gameObject.GetComponent<PlayerManager>().AddDamage(10f);
-            //破壊される
-            Destroy(this.gameObject);
-            //破壊のエフェクト
-            Instantiate(explosion, transform.position, transform.rotation);
         }
         if (collision.gameObject.CompareTag("Bullet"))
         {
             _health -= 100f;
+            //破壊のエフェクト
+            Instantiate(explosion, transform.position, transform.rotation);
         }
     }
 

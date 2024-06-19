@@ -12,6 +12,6 @@ public class ScrollBack : MonoBehaviour
     void Update()
     {
         //スクロールするスピード
-        this.transform.Translate(-0.02f,0,0);
+        this.transform.Translate(-0.01f,0,0);
     }
 }
