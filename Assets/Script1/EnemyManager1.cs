@@ -90,8 +90,8 @@ public class EnemyManager1 : MonoBehaviour
         }
     }
 
-    public void OnDestroy()
+    private void OnDestroy()
     {
-        //_gameController.AddScore();
+        _gameController.AddScore();
     }
 }

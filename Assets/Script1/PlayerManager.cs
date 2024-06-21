@@ -21,7 +21,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] Transform _lowerPosition;
 
     //GameController‚ğæ“¾
-    public GameController _gameController;
+    GameController _gameController;
 
     //Player‚ÌÅ‘åHP
     float _health = 100f;
@@ -67,6 +67,7 @@ public class PlayerManager : MonoBehaviour
 
         }
         Move();
+        //_gameController.AddScore();
 
         if (_health <= 0)
         {
@@ -105,5 +106,6 @@ public class PlayerManager : MonoBehaviour
         //æ“¾‚µ‚½“ü—Í’l‚ğ”½‰f‚³‚¹‚é
         transform.position += new Vector3(x, y, 0) * Time.deltaTime;
     }
+
 
 }

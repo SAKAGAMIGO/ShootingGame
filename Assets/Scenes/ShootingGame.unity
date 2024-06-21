@@ -1000,10 +1000,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bd38f27f7f6f349a2d8a4313dbbefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boss: {fileID: 0}
   gameOverText: {fileID: 1721393931}
   gameClearText: {fileID: 598094500}
   scoreText: {fileID: 1262552123}
+  _enemySpawn1: {fileID: 608878198}
+  _enemySpawn2: {fileID: 1445984663}
+  _enemySpawn3: {fileID: 459664976}
+  _blockSpawn: {fileID: 511184831}
+  _blockSpawnSmall: {fileID: 672248642}
+  _bossSpawn: {fileID: 9054657}
 --- !u!1 &862908453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,7 +1269,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1.16
-  m_Text: SCORE:0
+  m_Text: 'SCORE:
+
+    0'
 --- !u!222 &1262552124
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1611,74 +1618,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774950374}
   m_CullTransparentMesh: 1
---- !u!1001 &1786317097
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 293157819022756416, guid: eca9a03880a9bfc4a8f7f512a6252c9c,
-        type: 3}
-      propertyPath: m_Name
-      value: BosEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 4502388833383702506, guid: eca9a03880a9bfc4a8f7f512a6252c9c,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4502388833383702506, guid: eca9a03880a9bfc4a8f7f512a6252c9c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4502388833383702506, guid: eca9a03880a9bfc4a8f7f512a6252c9c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4502388833383702506, guid: eca9a03880a9bfc4a8f7f512a6252c9c,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4502388833383702506, guid: eca9a03880a9bfc4a8f7f512a6252c9c,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4502388833383702506, guid: eca9a03880a9bfc4a8f7f512a6252c9c,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4502388833383702506, guid: eca9a03880a9bfc4a8f7f512a6252c9c,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4502388833383702506, guid: eca9a03880a9bfc4a8f7f512a6252c9c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4502388833383702506, guid: eca9a03880a9bfc4a8f7f512a6252c9c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4502388833383702506, guid: eca9a03880a9bfc4a8f7f512a6252c9c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: eca9a03880a9bfc4a8f7f512a6252c9c, type: 3}
 --- !u!1 &1801514573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1910,12 +1849,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minute: 0
   _seconds: 0
-  _enemySpawn1: {fileID: 608878198}
-  _enemySpawn2: {fileID: 1445984663}
-  _enemySpawn3: {fileID: 459664976}
-  _blockSpawn: {fileID: 511184831}
-  _blockSpawnSmall: {fileID: 672248642}
-  _bossSpawn: {fileID: 9054657}
 --- !u!1 &2086831042
 GameObject:
   m_ObjectHideFlags: 0
@@ -2056,7 +1989,6 @@ MonoBehaviour:
   _rightPosition: {fileID: 1116011682}
   _upperPosition: {fileID: 342333992}
   _lowerPosition: {fileID: 2086831043}
-  _gameController: {fileID: 729519710}
   bulletPrefab: {fileID: 7419365653247740899, guid: 5c90ac2ca80bfb945a317a3867b12c35,
     type: 3}
   Muzzle1: {fileID: 56680884}
@@ -2314,4 +2246,3 @@ SceneRoots:
   - {fileID: 511184833}
   - {fileID: 672248644}
   - {fileID: 9054658}
-  - {fileID: 1786317097}

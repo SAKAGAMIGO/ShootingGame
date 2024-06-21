@@ -15,17 +15,11 @@ public class TimerScript : MonoBehaviour
     private Text _timerText;
 
 
-    //EnemyÇÃSponer
-    public GameObject _enemySpawn1;
-    public GameObject _enemySpawn2;
-    public GameObject _enemySpawn3;
-    public GameObject _blockSpawn;
-    public GameObject _blockSpawnSmall;
-    public GameObject _bossSpawn;
+
 
     void Start()
     {
-        StartCoroutine(Timer());
+        //StartCoroutine(Timer());
 
         _minute = 0;
         _seconds = 0f;
@@ -57,68 +51,62 @@ public class TimerScript : MonoBehaviour
 
 
     }
-    public IEnumerator Timer()
-    {
-        //ÉQÅ[ÉÄãNìÆéûÇ…ObjectÇîÒï\é¶Ç…Ç∑ÇÈ
-        _enemySpawn1.SetActive(false);
-        _enemySpawn2.SetActive(false);
-        _enemySpawn3.SetActive(false);
-        _blockSpawn.SetActive(false);
-        _blockSpawnSmall.SetActive(false);
-        _bossSpawn.SetActive(false);
+    //public IEnumerator Timer()
+    //{
 
-    //3ïbâ…
-    yield return new WaitForSeconds(2);
-        //Enemy1Ç™10ïbä‘èoåª
-        _enemySpawn1.SetActive(true);
-        //Enemy2Ç™10ïbä‘èoåª
-        _enemySpawn2.SetActive(true);
-        //BossÇ™65ïbå„Ç…èoåª
-        _bossSpawn.SetActive(true);
-        yield return new WaitForSeconds(20);
-        _enemySpawn1.SetActive(false) ;
-        _enemySpawn2.SetActive(false);
 
-        yield return new WaitForSeconds(1);
+    ////3ïbâ…
+    //yield return new WaitForSeconds(2);
+    //    //Enemy1Ç™10ïbä‘èoåª
+    //    _enemySpawn1.SetActive(true);
+    //    //Enemy2Ç™10ïbä‘èoåª
+    //    _enemySpawn2.SetActive(true);
+    //    //BossÇ™65ïbå„Ç…èoåª
+    //    _bossSpawn.SetActive(true);
+    //    yield return new WaitForSeconds(20);
+    //    _enemySpawn1.SetActive(false) ;
+    //    _enemySpawn2.SetActive(false);
 
-        _enemySpawn3.SetActive(true);
-        yield return new WaitForSeconds(1);
-        _enemySpawn3.SetActive(false) ;
+    //    yield return new WaitForSeconds(1);
 
-        yield return new WaitForSeconds(1);
+    //    _enemySpawn3.SetActive(true);
+    //    yield return new WaitForSeconds(1);
+    //    _enemySpawn3.SetActive(false) ;
 
-        _enemySpawn3.SetActive(true) ;
-        yield return new WaitForSeconds(1);
-        _enemySpawn3.SetActive(false) ;
+    //    yield return new WaitForSeconds(1);
 
-        yield return new WaitForSeconds(1);
+    //    _enemySpawn3.SetActive(true) ;
+    //    yield return new WaitForSeconds(1);
+    //    _enemySpawn3.SetActive(false) ;
 
-        _enemySpawn3.SetActive(true);
-        yield return new WaitForSeconds(1);
-        _enemySpawn3.SetActive(false);
+    //    yield return new WaitForSeconds(1);
 
-        yield return new WaitForSeconds(1);
+    //    _enemySpawn3.SetActive(true);
+    //    yield return new WaitForSeconds(1);
+    //    _enemySpawn3.SetActive(false);
 
-        _enemySpawn3.SetActive(true);
-        yield return new WaitForSeconds(1);
-        _enemySpawn3.SetActive(false);
+    //    yield return new WaitForSeconds(1);
 
-        yield return new WaitForSeconds(1);
+    //    _enemySpawn3.SetActive(true);
+    //    yield return new WaitForSeconds(1);
+    //    _enemySpawn3.SetActive(false);
 
-        _blockSpawn.SetActive(true);
-        _blockSpawnSmall.SetActive(true);
-        _enemySpawn1.SetActive(true);
-        yield return new WaitForSeconds(20);
-        _enemySpawn1.SetActive(false);
+    //    yield return new WaitForSeconds(1);
 
-        yield return new WaitForSeconds(1);
+    //    _blockSpawn.SetActive(true);
+    //    _blockSpawnSmall.SetActive(true);
+    //    _enemySpawn1.SetActive(true);
+    //    yield return new WaitForSeconds(20);
+    //    _enemySpawn1.SetActive(false);
 
-        _enemySpawn1.SetActive(true);
-        _enemySpawn2.SetActive(true) ;
-        yield return new WaitForSeconds(10);
-        _enemySpawn1.SetActive(false);
-        _enemySpawn2.SetActive(false) ;
-        _blockSpawn.SetActive(false);
-        _blockSpawnSmall.SetActive(false);
-    }
+    //    yield return new WaitForSeconds(1);
+
+    //    _enemySpawn1.SetActive(true);
+    //    _enemySpawn2.SetActive(true) ;
+    //    yield return new WaitForSeconds(10);
+    //    _enemySpawn1.SetActive(false);
+    //    _enemySpawn2.SetActive(false) ;
+    //    _blockSpawn.SetActive(false);
+    //    _blockSpawnSmall.SetActive(false);
+    //}
 }

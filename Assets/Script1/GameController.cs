@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
+using System;
 
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] GameObject _boss;
+
     public GameObject gameOverText;
     public GameObject gameClearText;
     public Text scoreText;
@@ -17,10 +18,16 @@ public class GameController : MonoBehaviour
     private bool isGameOver;
     private bool isGameClear;
 
+    //EnemyのSponer
+    public GameObject _enemySpawn1;
+    public GameObject _enemySpawn2;
+    public GameObject _enemySpawn3;
+    public GameObject _blockSpawn;
+    public GameObject _blockSpawnSmall;
+    public GameObject _bossSpawn;
+
 
     TimerScript _timerScript;
-
-
 
     void Start()
     {
@@ -33,14 +40,22 @@ public class GameController : MonoBehaviour
         gameClearText.SetActive(false);
 
         //SCORを表示
-        scoreText.text = "SCORE:" + score;
+        scoreText.text = "SCORE:" + Environment.NewLine +  score;
+
+        //ゲーム起動時にObjectを非表示にする
+        _enemySpawn1.SetActive(true);
+        _enemySpawn2.SetActive(false);
+        _enemySpawn3.SetActive(false);
+        _blockSpawn.SetActive(false);
+        _blockSpawnSmall.SetActive(false);
+        _bossSpawn.SetActive(false);
     }
 
     public void AddScore()
     {
         //敵を倒すと実行
         score += 100;
-        scoreText.text = "SCORE" + score;
+        scoreText.text = "SCORE" + Environment.NewLine + score;
     }
 
     //GameOverTextを取得
@@ -61,6 +76,14 @@ public class GameController : MonoBehaviour
         if (isGameOver && Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene("ShootingGame");
+        }
+    }
+
+    public void Score()
+    {
+        if (score <= 500)
+        {
+            _enemySpawn1.SetActive(false);
         }
     }
 }

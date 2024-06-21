@@ -34,7 +34,7 @@ public class BlockManager2: MonoBehaviour
         Move();
         OffScreen();
         //Block‚ª‰ñ“]‚·‚é
-        transform.Rotate(0, 0, 2);
+        transform.Rotate(0, 0, 1);
 
         //HP‚ª0‚É‚È‚Á‚½‚çÀs
         if (_health <= 0)
