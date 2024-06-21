@@ -21,7 +21,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] Transform _lowerPosition;
 
     //GameController‚ğæ“¾
-    GameController _gameController;
+    [SerializeField] GameController _gameController;
 
     //Player‚ÌÅ‘åHP
     float _health = 100f;
@@ -34,7 +34,7 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject explosion;
 
-    //
+    //Player‚Ì‘Ì—Í
     HealthGuage _healthGuage;
 
     public void AddDamage(float damage)

@@ -8,11 +8,11 @@ public class EnemyManager1 : MonoBehaviour
     [SerializeField] int moveSpeed ;
 
     //ゲームオブジェクトを取得
-    public GameObject bulletPrefab;
-    public GameObject Muzzle;
+    public GameObject _bulletPrefab;
+    public GameObject _Muzzle;
 
     //爆発のエフェクト
-    public GameObject explosion;
+    public GameObject _explosion;
 
     //Enemyの最大HP
     float _health = 100f;
@@ -31,7 +31,9 @@ public class EnemyManager1 : MonoBehaviour
     //Enemyが生成されるとEnemyBulletも生成される
     private void Start()
     {
+        //GameControllerを参照
         _gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        //出現してから1回だけBulletを飛ばす
         Shot();
     }
 
@@ -43,9 +45,10 @@ public class EnemyManager1 : MonoBehaviour
         if (_health <= 0)
         {
             //破壊のエフェクト
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(_explosion, transform.position, transform.rotation);
             //破壊される
             Destroy(this.gameObject);
+            _gameController.AddScore();
         }
     }
 
@@ -68,8 +71,8 @@ public class EnemyManager1 : MonoBehaviour
     //Bulletを生成
     private void Shot()
     {
-        GameObject _bullet = Instantiate(bulletPrefab);
-        _bullet.transform.position = Muzzle.transform.position;
+        GameObject _bullet = Instantiate(_bulletPrefab);
+        _bullet.transform.position = _Muzzle.transform.position;
     }
 
     //Playerに当たったら実行
@@ -82,7 +85,7 @@ public class EnemyManager1 : MonoBehaviour
             //破壊される
             Destroy(this.gameObject);
             //破壊のエフェクト
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(_explosion, transform.position, transform.rotation);
         }
         if (collision.gameObject.CompareTag("Bullet"))
         {
@@ -90,8 +93,8 @@ public class EnemyManager1 : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
-        _gameController.AddScore();
-    }
+    //private void OnDestroy()
+    //{
+    //    _gameController.AddScore();
+    //}
 }

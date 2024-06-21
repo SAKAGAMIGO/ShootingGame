@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 9054658}
   - component: {fileID: 9054659}
   m_Layer: 0
-  m_Name: BossEnemySpawn
+  m_Name: BossSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1849,6 +1849,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minute: 0
   _seconds: 0
+  _enemySpawn1: {fileID: 608878198}
+  _enemySpawn2: {fileID: 1445984663}
+  _enemySpawn3: {fileID: 459664976}
+  _blockSpawn1: {fileID: 511184831}
+  _blockSpawn2: {fileID: 672248642}
+  _bossSpawn: {fileID: 9054657}
 --- !u!1 &2086831042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1989,6 +1995,7 @@ MonoBehaviour:
   _rightPosition: {fileID: 1116011682}
   _upperPosition: {fileID: 342333992}
   _lowerPosition: {fileID: 2086831043}
+  _gameController: {fileID: 729519710}
   bulletPrefab: {fileID: 7419365653247740899, guid: 5c90ac2ca80bfb945a317a3867b12c35,
     type: 3}
   Muzzle1: {fileID: 56680884}

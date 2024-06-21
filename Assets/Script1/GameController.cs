@@ -8,8 +8,7 @@ using System;
 
 
 public class GameController : MonoBehaviour
-{
-
+{ 
     public GameObject gameOverText;
     public GameObject gameClearText;
     public Text scoreText;

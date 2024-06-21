@@ -28,7 +28,6 @@ public class BlockManager1 : MonoBehaviour
         _gameController = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();
@@ -46,7 +45,9 @@ public class BlockManager1 : MonoBehaviour
         }
     }
 
-    //Block‚ğ¶‚ÉˆÚ“®‚³‚¹‚é
+    /// <summary>
+    /// Block‚ğ¶‚ÉˆÚ“®‚³‚¹‚é
+    /// </summary>
     private void Move()
     {
         transform.position +=
@@ -80,6 +81,9 @@ public class BlockManager1 : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// ‚ ‚ ‚ 
+    /// </summary>
     public void OnDestroy()
     {
         //_gameController.AddScore();

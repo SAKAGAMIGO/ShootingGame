@@ -47,6 +47,7 @@ public class EnemyManager2 : MonoBehaviour
             Instantiate(explosion, transform.position, transform.rotation);
             //”j‰ó‚³‚ê‚é
             Destroy(this.gameObject);
+            _gameController.AddScore();
         }
     }
 
@@ -99,8 +100,9 @@ public class EnemyManager2 : MonoBehaviour
         }
     }
 
-    public void OnDestroy()
-    {
-        //_gameController.AddScore();
-    }
+
+    //public void OnDestroy()
+    //{
+    //    //_gameController.AddScore();
+    //}
 }
