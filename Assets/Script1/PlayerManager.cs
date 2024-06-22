@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     //プレイヤーの移動速度
-    [SerializeField] int moveSpeed = 5;
+    [SerializeField] int _moveSpeed = 5;
 
     float _interval = 0;
 
@@ -40,13 +40,15 @@ public class PlayerManager : MonoBehaviour
     public void AddDamage(float damage)
     {
         _health -= damage;
-        _healthGuage.TakeDamage(damage * .01f);
+        _healthGuage.TakeDamage(damage);
     }
 
     private void Start()
     {
         //HealthGuageを取得
         _healthGuage = GameObject.FindAnyObjectByType<HealthGuage>();
+
+        _healthGuage.Setup(_health);
     }
 
     // 左クリックを押すとBulletが生成される
@@ -84,8 +86,8 @@ public class PlayerManager : MonoBehaviour
     private void Move()
     {
         //キーの入力値を取得
-        float x = Input.GetAxisRaw("Horizontal") * moveSpeed;
-        float y = Input.GetAxisRaw("Vertical") * moveSpeed;
+        float x = Input.GetAxisRaw("Horizontal") * _moveSpeed;
+        float y = Input.GetAxisRaw("Vertical") * _moveSpeed;
         if (transform.position.x < _leftPosition.position.x && x < 0)
         {
             x = 0;

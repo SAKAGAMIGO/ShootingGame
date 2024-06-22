@@ -5,10 +5,10 @@ using UnityEngine;
 public class BlockManager2: MonoBehaviour
 {
     //Blockの移動速度
-    [SerializeField] float moveSpeed;
+    [SerializeField] float _moveSpeed;
 
     //爆発のエフェクト
-    public GameObject explosion;
+    public GameObject _explosion;
 
     //Blockの最大HP
     float _health = 300f;
@@ -17,7 +17,10 @@ public class BlockManager2: MonoBehaviour
     //GameController取得
     GameController _gameController;
 
-    //ダメージを与える
+    /// <summary>
+    /// ダメージを与える
+    /// </summary>
+    /// <param name="damage"></param>
     public void AddDamage(float damage)
     {
         _health -= damage;
@@ -25,10 +28,11 @@ public class BlockManager2: MonoBehaviour
 
     void Start()
     {
+        //GameController
         _gameController = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         Move();
@@ -40,21 +44,27 @@ public class BlockManager2: MonoBehaviour
         if (_health <= 0)
         {
             //破壊のエフェクト
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(_explosion, transform.position, transform.rotation);
             //破壊される
             Destroy(this.gameObject);
+            //Score
+            _gameController.AddScore();
         }
     }
 
-    //Blockを左に移動させる
+    /// <summary>
+    /// Blockを左に移動させる
+    /// </summary>
     private void Move()
     {
         transform.position +=
-            new Vector3(-moveSpeed, 0, 0) * Time.deltaTime;
+            new Vector3(-_moveSpeed, 0, 0) * Time.deltaTime;
 
     }
 
-    //Blockが画面外に出たら消滅
+    /// <summary>
+    /// Blockが画面外に出たら消滅
+    /// </summary>
     private void OffScreen()
     {
         if (this.transform.position.x < -10f)
@@ -70,7 +80,7 @@ public class BlockManager2: MonoBehaviour
             //Playerにダメージを与える
             collision.gameObject.GetComponent<PlayerManager>().AddDamage(10f);
             //破壊のエフェクト
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(_explosion, transform.position, transform.rotation);
             //破壊される
             Destroy(this.gameObject);
         }
@@ -78,10 +88,5 @@ public class BlockManager2: MonoBehaviour
         {
             _health -= 100f;
         }
-    }
-
-    public void OnDestroy()
-    {
-        //_gameController.AddScore();
     }
 }

@@ -5,17 +5,17 @@ using UnityEngine;
 public class EnemySpawn3 : MonoBehaviour
 {
     //ゲームオブジェクトを取得
-    [SerializeField] GameObject enemyPrefab;
-    [SerializeField] GameObject upeer;
-    [SerializeField] GameObject low;
+    [SerializeField] GameObject _enemyPrefab;
+    [SerializeField] GameObject _upeer;
+    [SerializeField] GameObject _low;
 
-    private float interval;
+    private float _interval;
 
-    private float time = 0f;
+    private float _time = 0f;
   
     void Start()
     {
-        interval = 0.2f;
+        _interval = 0.2f;
     }
 
     
@@ -23,14 +23,14 @@ public class EnemySpawn3 : MonoBehaviour
     {
         
 
-        time += Time.deltaTime;
+        _time += Time.deltaTime;
 
-        if (time > interval)
+        if (_time > _interval)
         {
-            GameObject enemy = Instantiate(enemyPrefab,
+            GameObject enemy = Instantiate(_enemyPrefab,
                                            this.transform.position,
                                            transform.rotation);
-            time = 0f;
+            _time = 0f;
             Spawn();
         }
 
@@ -40,8 +40,8 @@ public class EnemySpawn3 : MonoBehaviour
     private void Spawn()
     {
         //ランダムなx軸を取得
-        Vector2 randomPos = new Vector2(Random.Range(upeer.transform.position.x, low.transform.position.x), Random.Range(upeer.transform.position.y, low.transform.position.y));
-        GameObject _enemy = Instantiate(enemyPrefab);
+        Vector2 randomPos = new Vector2(Random.Range(_upeer.transform.position.x, _low.transform.position.x), Random.Range(_upeer.transform.position.y, _low.transform.position.y));
+        GameObject _enemy = Instantiate(_enemyPrefab);
         _enemy.transform.position = randomPos;
 
     }

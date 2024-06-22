@@ -67,8 +67,6 @@ public class TimerScript : MonoBehaviour
     }
     public IEnumerator Timer()
     {
-
-
         //3ïbâ…
         yield return new WaitForSeconds(2);
         //Enemy1Ç™10ïbä‘èoåª

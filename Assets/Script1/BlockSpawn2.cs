@@ -14,7 +14,7 @@ public class BlockSpawn2 : MonoBehaviour
 
     void Start()
     {
-        //Spawn‚ğ2•bŠÔŠu‚ÅÀs
+       @
     }
 
 

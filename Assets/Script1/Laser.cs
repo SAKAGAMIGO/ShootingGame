@@ -5,7 +5,7 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     //Bulletのスピード
-    public int bulletSpeed = 8;
+    public int _bulletSpeed = 8;
 
     //    public GameController explosion2;
 
@@ -19,7 +19,7 @@ public class Laser : MonoBehaviour
     private void Move()
     {
         transform.position +=
-            new Vector3(-bulletSpeed, 0, 0) * Time.deltaTime;
+            new Vector3(-_bulletSpeed, 0, 0) * Time.deltaTime;
     }
 
     //Bulletが画面外に出たら消滅

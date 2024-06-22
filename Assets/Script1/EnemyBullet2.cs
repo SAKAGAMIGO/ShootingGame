@@ -6,7 +6,7 @@ public class EnemyBullet2 : MonoBehaviour
 {
 
     //Bulletのスピード
-    public int bulletSpeed = 8;
+    public int _bulletSpeed = 8;
 
     void Update()
     {
@@ -18,7 +18,7 @@ public class EnemyBullet2 : MonoBehaviour
     private void Move()
     {
         transform.position +=
-            new Vector3(-bulletSpeed, 0, 0) * Time.deltaTime;
+            new Vector3(-_bulletSpeed, 0, 0) * Time.deltaTime;
     }
 
     //Bulletが画面外に出たら消滅

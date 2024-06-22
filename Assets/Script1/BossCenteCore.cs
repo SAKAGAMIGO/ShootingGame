@@ -5,11 +5,11 @@ using UnityEngine;
 public class BossCenterCore : MonoBehaviour
 {
     //ゲームオブジェクトを取得
-    public GameObject bulletPrefab;
-    public GameObject Muzzle;
+    public GameObject _bulletPrefab;
+    public GameObject _Muzzle;
 
     //爆発のエフェクト
-    public GameObject explosion;
+    public GameObject _explosion;
 
     //Enemyの最大HP
     float _health = 2000f;
@@ -18,16 +18,23 @@ public class BossCenterCore : MonoBehaviour
     //GameController取得
     GameController _gameController;
 
-    public int count = 0;
+    //BossManager
+    BossManager _manager;
+
+    //Bullet
+    public int _intrval = 0;
+
     //ダメージを与える
     public void AddDamage(float damage)
     {
         _health -= damage;
     }
 
-    BossManager _manager;
+    
 
-    //Enemyが生成されるとEnemyBulletも生成される
+    /// <summary>
+    /// Enemyが生成されるとEnemyBulletも生成される
+    /// </summary>
     public void Start()
     {
         _gameController = GameObject.Find("GameController").GetComponent<GameController>();
@@ -38,30 +45,31 @@ public class BossCenterCore : MonoBehaviour
 
     void Update()
     {
-        count++;
-
+        _intrval++;
         Shot();
         //HPが0になったら実行
         if (_health <= 0)
         {
             //破壊のエフェクト
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(_explosion, transform.position, transform.rotation);
             //破壊される
             Destroy(this.gameObject);
         }
     }
 
-    //Bulletを生成
+    /// <summary>
+    /// Bulletを生成
+    /// </summary>
     private void Shot()
     {
-        if (count % 200 == 0)
+        if (_intrval % 200 == 0)
         {
-            GameObject _bullet = Instantiate(bulletPrefab);
-            _bullet.transform.position = Muzzle.transform.position;
+            GameObject _bullet = Instantiate(_bulletPrefab);
+            _bullet.transform.position = _Muzzle.transform.position;
         }
     }
 
-    //Playerに当たったら実行
+    ///Playerに当たったら実行
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -72,10 +80,13 @@ public class BossCenterCore : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             _health -= 100f;
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(_explosion, transform.position, transform.rotation);
         }
     }
 
+    /// <summary>
+    /// Destroy
+    /// </summary>
     public void OnDestroy()
     {
         _gameController.AddScore();

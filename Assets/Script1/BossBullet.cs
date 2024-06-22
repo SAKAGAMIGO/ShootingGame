@@ -5,9 +5,7 @@ using UnityEngine;
 public class BossBullet1 : MonoBehaviour
 {
     //Bulletのスピード
-    public int bulletSpeed = 8;
-
-    //    public GameController explosion2;
+    public int _bulletSpeed = 8;
 
     void Update()
     {
@@ -15,14 +13,18 @@ public class BossBullet1 : MonoBehaviour
         OffScreen();
     }
 
-    //Bulletを左に飛ばす
+    /// <summary>
+    /// Bulletを左に飛ばす
+    /// </summary>
     private void Move()
     {
         transform.position +=
-            new Vector3(-bulletSpeed, 0, 0) * Time.deltaTime;
+            new Vector3(-_bulletSpeed, 0, 0) * Time.deltaTime;
     }
 
-    //Bulletが画面外に出たら消滅
+    /// <summary>
+    /// Bulletが画面外に出たら消滅
+    /// </summary>
     private void OffScreen()
     {
         if (this.transform.position.x < -10)
@@ -35,13 +37,11 @@ public class BossBullet1 : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        {
-            // Instantiate(explosion2,transform.position,transform.rotation);
+        {         
             //プレイヤーにダメージを与える
             collision.gameObject.GetComponent<PlayerManager>().AddDamage(10f);
             //このオブジェクトが破壊される
             Destroy(this.gameObject);
-
         }
     }
 }

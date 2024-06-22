@@ -6,12 +6,12 @@ public class EnemySpawn1 : MonoBehaviour
 {
 
     //ゲームオブジェクトを取得
-    [SerializeField] GameObject enemyPrefab;
-    [SerializeField] GameObject upeer;
-    [SerializeField] GameObject low;
+    [SerializeField] GameObject _enemyPrefab;
+    [SerializeField] GameObject _upeer;
+    [SerializeField] GameObject _low;
     //出現の頻度
-    [SerializeField] float interval;
-    float timer;
+    [SerializeField] float _interval;
+    float _timer;
 
     void Start()
     {
@@ -21,12 +21,12 @@ public class EnemySpawn1 : MonoBehaviour
     void Update()
     {
         //Spawnを1秒間隔で実行
-        timer += Time.deltaTime;
+        _timer += Time.deltaTime;
 
-        if (timer > interval)
+        if (_timer > _interval)
         {
             Spawn();
-            timer = 0;
+            _timer = 0;
         }
     }
 
@@ -34,8 +34,8 @@ public class EnemySpawn1 : MonoBehaviour
     private void Spawn()
     {
         //ランダムなx軸を取得
-        Vector2 randomPos = new Vector2(Random.Range(upeer.transform.position.x, low.transform.position.x), Random.Range(upeer.transform.position.y, low.transform.position.y));
-        GameObject _enemy = Instantiate(enemyPrefab);
+        Vector2 randomPos = new Vector2(Random.Range(_upeer.transform.position.x, _low.transform.position.x), Random.Range(_upeer.transform.position.y, _low.transform.position.y));
+        GameObject _enemy = Instantiate(_enemyPrefab);
         _enemy.transform.position = randomPos;
     
     }

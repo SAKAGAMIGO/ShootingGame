@@ -5,15 +5,15 @@ using UnityEngine;
 public class EnemyManager2 : MonoBehaviour
 {
     //Enemyの移動速度
-    [SerializeField] int moveSpeed;
+    [SerializeField] int _moveSpeed;
 
     //ゲームオブジェクトを取得
-    public GameObject bulletPrefab;
-    public GameObject Muzzle1;
-    public GameObject Muzzle2;
+    public GameObject _bulletPrefab;
+    public GameObject _Muzzle1;
+    public GameObject _Muzzle2;
 
     //爆発のエフェクト
-    public GameObject explosion;
+    public GameObject _explosion;
 
     //Enemyの最大HP
     float _health = 100f;
@@ -44,7 +44,7 @@ public class EnemyManager2 : MonoBehaviour
         if (_health <= 0)
         {
             //破壊のエフェクト
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(_explosion, transform.position, transform.rotation);
             //破壊される
             Destroy(this.gameObject);
             _gameController.AddScore();
@@ -55,7 +55,7 @@ public class EnemyManager2 : MonoBehaviour
     private void Move()
     {
         transform.position +=
-            new Vector3(-moveSpeed, 0, 0) * Time.deltaTime;
+            new Vector3(-_moveSpeed, 0, 0) * Time.deltaTime;
     }
 
     //Enemyが画面外に出たら消滅
@@ -70,14 +70,14 @@ public class EnemyManager2 : MonoBehaviour
     //Bulletを生成
     private void Shot1()
     {
-        GameObject _bullet = Instantiate(bulletPrefab);
-        _bullet.transform.position = Muzzle1.transform.position;
+        GameObject _bullet = Instantiate(_bulletPrefab);
+        _bullet.transform.position = _Muzzle1.transform.position;
     }
 
     private void Shot2()
     {
-        GameObject _bullet = Instantiate(bulletPrefab);
-        _bullet.transform.position = Muzzle2.transform.position;
+        GameObject _bullet = Instantiate(_bulletPrefab);
+        _bullet.transform.position = _Muzzle2.transform.position;
     }
 
 
@@ -90,7 +90,7 @@ public class EnemyManager2 : MonoBehaviour
             //Playerにダメージを与える
             collision.gameObject.GetComponent<PlayerManager>().AddDamage(10f);
             //破壊のエフェクト
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(_explosion, transform.position, transform.rotation);
             //破壊される
             Destroy(this.gameObject);
         }
@@ -99,10 +99,4 @@ public class EnemyManager2 : MonoBehaviour
             _health -= 100f;
         }
     }
-
-
-    //public void OnDestroy()
-    //{
-    //    //_gameController.AddScore();
-    //}
 }

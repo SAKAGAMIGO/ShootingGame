@@ -5,11 +5,11 @@ using UnityEngine;
 public class BossLeftCore : MonoBehaviour
 {
     //ゲームオブジェクトを取得
-    public GameObject bulletPrefab;
-    public GameObject Muzzle;
+    public GameObject _bulletPrefab;
+    public GameObject _Muzzle;
 
     //爆発のエフェクト
-    public GameObject explosion;
+    public GameObject _explosion;
 
     //Enemyの最大HP
     float _health = 2000f;
@@ -18,17 +18,24 @@ public class BossLeftCore : MonoBehaviour
     //GameController取得
     GameController _gameController;
 
-    private int count = 0;
-    //ダメージを与える
+    //BossManagerを取得
+    BossManager _manager;
+
+    //Bullet生成のインターバル
+    private int _interval;
+
+    /// <summary>
+    /// ダメージを与える
+    /// </summary>
+    /// <param name="damage"></param>
     public void AddDamage(float damage)
     {
         _health -= damage;
     }
 
-    BossManager _manager;
-
-
-    //Enemyが生成されるとEnemyBulletも生成される
+    /// <summary>
+    /// Enemyが生成されるとEnemyBulletも生成される
+    /// </summary>
     private void Start()
     {
         _gameController = GameObject.Find("GameController").GetComponent<GameController>();
@@ -37,26 +44,28 @@ public class BossLeftCore : MonoBehaviour
 
     void Update()
     {
-        count++;
+        _interval++;
 
         Shot();
         //HPが0になったら実行
         if (_health <= 0)
         {
             //破壊のエフェクト
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(_explosion, transform.position, transform.rotation);
             //破壊される
             Destroy(this.gameObject);
         }
     }
 
-    //Bulletを生成
+    /// <summary>
+    /// Bulletを生成
+    /// </summary>
     private void Shot()
     {
-        if (count % 400 == 0)
+        if (_interval % 400 == 0)
         {
-            GameObject _bullet = Instantiate(bulletPrefab);
-            _bullet.transform.position = Muzzle.transform.position;
+            GameObject _bullet = Instantiate(_bulletPrefab);
+            _bullet.transform.position = _Muzzle.transform.position;
         }
     }
 
@@ -72,10 +81,13 @@ public class BossLeftCore : MonoBehaviour
         {
             _health -= 100f;
             //破壊のエフェクト
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(_explosion, transform.position, transform.rotation);
         }
     }
 
+    /// <summary>
+    /// Destroyしたら実行
+    /// </summary>
     public void OnDestroy()
     {
         _gameController.AddScore();

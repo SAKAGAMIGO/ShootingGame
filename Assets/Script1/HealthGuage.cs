@@ -8,43 +8,43 @@ public class HealthGuage : MonoBehaviour
 {
 
     //緑色のバー
-    [SerializeField] private Image healthImage;
+    [SerializeField] private Image _health;
     //赤色のバー
-    [SerializeField] private Image burnImage;
+    [SerializeField] private Image _burn;
 
     //HPが減る時間
-    public float duration = 0.5f;
+    public float _duration = 0.5f;
     //最大HP
-    public float currentHP = 100f;
+    private float _currentHP = 100f;
     //バーが減る量
     public float _damage = 10f;
     //バーが揺れる強さ
-    public float strength = 20f;
+    public float _strength = 20f;
     //バーが揺れる強さ
-    public int vibrate = 100;
+    public int _vibrate = 100;
+
+    private float _maxHp;
+
+    public void Setup(float hp)
+    {
+        _currentHP = hp;
+        _maxHp = hp;
+    }
 
     public void SetGuage(float targetRate)
     {
-        healthImage.DOFillAmount(targetRate, duration).OnComplete(() =>
+        _health.DOFillAmount(targetRate, _duration).OnComplete(() =>
         {
-            burnImage.DOFillAmount(targetRate, duration * 0.5f).SetDelay(0.5f);
+            _burn.DOFillAmount(targetRate, _duration * 0.5f).SetDelay(0.5f);
         });
-        transform.DOShakePosition(duration * 0.5f, strength, vibrate);
-        currentHP = targetRate;
+        transform.DOShakePosition(_duration * 0.5f, _strength, _vibrate);
     }
 
     //HPが減るプログラム
     public void TakeDamage(float rate)
     {
-        SetGuage(currentHP - rate);
+        SetGuage((_currentHP - rate) / _maxHp);
+        _currentHP -= rate;
+        Debug.Log($"Rate: {rate}, Current: {_currentHP}, Max: {_maxHp}");
     }
-
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (!collision.gameObject.CompareTag("Player"))
-    //    {
-    //        TakeDamage(_damage);
-    //    }
-    //}
 }

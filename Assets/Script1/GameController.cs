@@ -9,13 +9,11 @@ using System;
 
 public class GameController : MonoBehaviour
 { 
-    public GameObject gameOverText;
-    public GameObject gameClearText;
-    public Text scoreText;
-    int score = 0;
-    // PlayerManager hp;
-    private bool isGameOver;
-    private bool isGameClear;
+    public GameObject _gameOverText;
+    public Text _scoreText;
+    int _score = 0;
+
+    private bool _isGameOver;
 
     //EnemyのSponer
     public GameObject _enemySpawn1;
@@ -24,7 +22,6 @@ public class GameController : MonoBehaviour
     public GameObject _blockSpawn;
     public GameObject _blockSpawnSmall;
     public GameObject _bossSpawn;
-
 
     TimerScript _timerScript;
 
@@ -35,11 +32,10 @@ public class GameController : MonoBehaviour
         _timerScript = GameObject.FindAnyObjectByType<TimerScript>();
 
         //ゲーム起動時にTextを非表示にする
-        gameOverText.SetActive(false);
-        gameClearText.SetActive(false);
+        _gameOverText.SetActive(false);
 
         //SCORを表示
-        scoreText.text = "SCORE:" + Environment.NewLine +  score;
+        _scoreText.text = "SCORE:" + Environment.NewLine +  _score;
 
         //ゲーム起動時にObjectを非表示にする
         _enemySpawn1.SetActive(true);
@@ -53,18 +49,24 @@ public class GameController : MonoBehaviour
     public void AddScore()
     {
         //敵を倒すと実行
-        score += 100;
-        scoreText.text = "SCORE" + Environment.NewLine + score;
+        _score += 100;
+        _scoreText.text = "SCORE" + Environment.NewLine + _score;
+    }
+
+    public void finish()
+    {
+        //3秒後にCall関数を実行する
+        Invoke("GameClear", 4f);
     }
 
     //GameOverTextを取得
     public void GameOver()
     {
-        gameOverText.SetActive(true);
-        isGameOver = true;
+        _gameOverText.SetActive(true);
+        _isGameOver = true;
     }
 
-    public static void GameClear()
+    public  void GameClear()
     {
         SceneManager.LoadScene("ClearScene");
     }
@@ -72,7 +74,7 @@ public class GameController : MonoBehaviour
     //GameのRetry
     private void Update()
     {
-        if (isGameOver && Input.GetKeyDown(KeyCode.Space))
+        if (_isGameOver && Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene("ShootingGame");
         }
@@ -80,7 +82,7 @@ public class GameController : MonoBehaviour
 
     public void Score()
     {
-        if (score <= 500)
+        if (_score <= 500)
         {
             _enemySpawn1.SetActive(false);
         }

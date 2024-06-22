@@ -5,11 +5,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     //Enemyの移動速度
-    [SerializeField] int moveSpeed;
+    [SerializeField] int _moveSpeed;
 
 
     //爆発のエフェクト
-    public GameObject explosion;
+    public GameObject _explosion;
 
     //Enemyの最大HP
     float _health = 200f;
@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
         if (_health <= 0)
         {
             //破壊のエフェクト
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(_explosion, transform.position, transform.rotation);
             //破壊される
             Destroy(this.gameObject);
         }
@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
     private void Move()
     {
         transform.position +=
-            new Vector3(-moveSpeed, 0, 0) * Time.deltaTime;
+            new Vector3(-_moveSpeed, 0, 0) * Time.deltaTime;
     }
 
     //Enemyが画面外に出たら消滅

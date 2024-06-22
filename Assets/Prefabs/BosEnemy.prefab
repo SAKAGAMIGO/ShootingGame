@@ -107,8 +107,8 @@ MonoBehaviour:
   _leftCore: {fileID: 7742520307589434919}
   _rightCore: {fileID: 5081570139953924113}
   _count: 3
-  player: {fileID: 293157819022756416}
-  speed: 3
+  _player: {fileID: 293157819022756416}
+  _speed: 5
 --- !u!50 &-2130098266399400824
 Rigidbody2D:
   serializedVersion: 4
@@ -434,12 +434,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 396ae167fde649949b3db4bb3370c2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7114809869243552930, guid: 21f0193c5556fed4a95048fb5af9b27b,
+  _bulletPrefab: {fileID: 7114809869243552930, guid: 21f0193c5556fed4a95048fb5af9b27b,
     type: 3}
-  Muzzle: {fileID: 2021263391548339120}
-  explosion: {fileID: 1289990519317594133, guid: 443a5492183bde14bb1041523edd94aa,
+  _Muzzle: {fileID: 2021263391548339120}
+  _explosion: {fileID: 1289990519317594133, guid: 443a5492183bde14bb1041523edd94aa,
     type: 3}
-  count: 3
+  _intrval: 1
 --- !u!58 &4058220263280260545
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -605,10 +605,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be971cf90535f814196990399575ef86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1325023228419915391, guid: da7ca41696124a54c928d4ec5395edcc,
+  _bulletPrefab: {fileID: 1325023228419915391, guid: da7ca41696124a54c928d4ec5395edcc,
     type: 3}
-  Muzzle: {fileID: 2892162032359637745}
-  explosion: {fileID: 1289990519317594133, guid: 443a5492183bde14bb1041523edd94aa,
+  _Muzzle: {fileID: 2892162032359637745}
+  _explosion: {fileID: 1289990519317594133, guid: 443a5492183bde14bb1041523edd94aa,
     type: 3}
 --- !u!58 &8592194223503563524
 CircleCollider2D:
@@ -779,8 +779,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 402c84e991f896d4b8c472ca7a8fad74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1325023228419915391, guid: da7ca41696124a54c928d4ec5395edcc,
+  _bulletPrefab: {fileID: 1325023228419915391, guid: da7ca41696124a54c928d4ec5395edcc,
     type: 3}
-  Muzzle: {fileID: 4266924645943527201}
-  explosion: {fileID: 1289990519317594133, guid: 443a5492183bde14bb1041523edd94aa,
+  _Muzzle: {fileID: 4266924645943527201}
+  _explosion: {fileID: 1289990519317594133, guid: 443a5492183bde14bb1041523edd94aa,
     type: 3}

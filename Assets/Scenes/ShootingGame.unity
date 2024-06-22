@@ -171,7 +171,7 @@ MonoBehaviour:
   _bossPrefab: {fileID: 293157819022756416, guid: eca9a03880a9bfc4a8f7f512a6252c9c,
     type: 3}
   _bossSpawnPos: {fileID: 1878275078}
-  interval: 63
+  _interval: 67
 --- !u!1 &56680884
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,10 +418,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97083c6d9dab9142a6f609ee7b9cced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 4831892657226492389, guid: f3c8dba7a64dbf343afa0ec635450153,
+  _enemyPrefab: {fileID: 4831892657226492389, guid: f3c8dba7a64dbf343afa0ec635450153,
     type: 3}
-  upeer: {fileID: 343503485}
-  low: {fileID: 144947890}
+  _upeer: {fileID: 343503485}
+  _low: {fileID: 144947890}
 --- !u!4 &459664978
 Transform:
   m_ObjectHideFlags: 0
@@ -533,11 +533,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5815615b49260b54fa5e3ee5fbb104f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockPrefab1: {fileID: 4914866993927364701, guid: 7b2d4c891f4c701438055537ee1d3456,
+  _blockPrefab1: {fileID: 4914866993927364701, guid: 7b2d4c891f4c701438055537ee1d3456,
     type: 3}
-  upeer: {fileID: 418919477}
-  low: {fileID: 459136434}
-  interval: 1
+  _upeer: {fileID: 418919477}
+  _low: {fileID: 459136434}
+  _interval: 1
 --- !u!4 &511184833
 Transform:
   m_ObjectHideFlags: 0
@@ -647,85 +647,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &598094500
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 598094501}
-  - component: {fileID: 598094503}
-  - component: {fileID: 598094502}
-  m_Layer: 5
-  m_Name: GameClearText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &598094501
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 598094500}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 604225196}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 300}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &598094502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 598094500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
-    m_FontSize: 100
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 150
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: Game Clear
---- !u!222 &598094503
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 598094500}
-  m_CullTransparentMesh: 1
 --- !u!1 &604225192
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,7 +744,6 @@ RectTransform:
   m_Children:
   - {fileID: 1262552122}
   - {fileID: 1721393932}
-  - {fileID: 598094501}
   - {fileID: 1144789762}
   - {fileID: 2037020373}
   m_Father: {fileID: 0}
@@ -883,11 +803,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b241320ec2c36834eb5076a89ffcd1b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 2409699419306019618, guid: 1ccf8042655a20b45b65b8e8453c1e87,
+  _enemyPrefab: {fileID: 2409699419306019618, guid: 1ccf8042655a20b45b65b8e8453c1e87,
     type: 3}
-  upeer: {fileID: 1151453197}
-  low: {fileID: 509770996}
-  interval: 1
+  _upeer: {fileID: 1151453197}
+  _low: {fileID: 509770996}
+  _interval: 1
 --- !u!4 &608878200
 Transform:
   m_ObjectHideFlags: 0
@@ -1000,9 +920,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bd38f27f7f6f349a2d8a4313dbbefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverText: {fileID: 1721393931}
-  gameClearText: {fileID: 598094500}
-  scoreText: {fileID: 1262552123}
+  _gameOverText: {fileID: 1721393931}
+  _scoreText: {fileID: 1262552123}
   _enemySpawn1: {fileID: 608878198}
   _enemySpawn2: {fileID: 1445984663}
   _enemySpawn3: {fileID: 459664976}
@@ -1123,13 +1042,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c785eed31310c0d4a99741f9db7b4018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthImage: {fileID: 1992079349}
-  burnImage: {fileID: 1774950376}
-  duration: 0.5
-  currentHP: 0.9
+  _health: {fileID: 1992079349}
+  _burn: {fileID: 1774950376}
+  _duration: 0.5
   _damage: 0.3
-  strength: 20
-  vibrate: 100
+  _strength: 20
+  _vibrate: 100
 --- !u!114 &1144789764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1340,11 +1258,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85f1cc8bca99924f8f129e32b043c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 2058478191396297669, guid: cf0bd423fbc6df24db8a0c8c4420eef7,
+  _enemyPrefab: {fileID: 2058478191396297669, guid: cf0bd423fbc6df24db8a0c8c4420eef7,
     type: 3}
-  upeer: {fileID: 244156803}
-  low: {fileID: 1472344135}
-  interval: 1
+  _upeer: {fileID: 244156803}
+  _low: {fileID: 1472344135}
+  _interval: 1
 --- !u!4 &1445984665
 Transform:
   m_ObjectHideFlags: 0
@@ -1989,7 +1907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08984d1587b66441aa0d3eabbdd6db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
+  _moveSpeed: 8
   _intervalMax: 0.15
   _leftPosition: {fileID: 486875577}
   _rightPosition: {fileID: 1116011682}
@@ -2121,7 +2039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55047079cf7fda744b825bce06644767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion2: {fileID: 8263529442908207958, guid: a9bcfe54e7638c941925cabc00344dad,
+  _explosion2: {fileID: 1289990519317594133, guid: 443a5492183bde14bb1041523edd94aa,
     type: 3}
 --- !u!1001 &732481625633084410
 PrefabInstance:

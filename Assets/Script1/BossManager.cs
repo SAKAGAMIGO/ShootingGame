@@ -5,41 +5,50 @@ using UnityEngine.SceneManagement;
 
 public class BossManager : MonoBehaviour
 {
-    int count;
 
     //É{ÉXÇÃåÇîjâπ
     [SerializeField] AudioClip _bossDestroyAudio;
 
+    //GameObjectÇí«â¡
     public GameObject _centerCore;
     public GameObject _leftCore;
     public GameObject _rightCore;
-
+    
+    //CoreÇÃêî
     [SerializeField] int _count;
 
-    public GameObject player;
+    //
+    public GameObject _player;
 
-    public int speed = 5;
+    //
+    public int _speed = 5;
+
+    //
     bool ok = false;
+
     Vector3 movePosition;
+
+    GameController _gameController;
 
     void Start()
     {
+        _gameController = GameObject.Find("GameController").GetComponent<GameController>();
         movePosition = moveRandomPosition();
     }
 
     void Update()
     {
-        if (movePosition == player.transform.position)
+        if (movePosition == _player.transform.position)
         {
             movePosition = moveRandomPosition();
         }
-        this.player.transform.position = Vector3.MoveTowards(player.transform.position, movePosition, speed * Time.deltaTime);
+        this._player.transform.position = Vector3.MoveTowards(_player.transform.position, movePosition, _speed * Time.deltaTime);
 
         if (_count == 0)
         {
             AudioSource.PlayClipAtPoint(_bossDestroyAudio, transform.position);
-            Destroy(gameObject);
-            GameController.GameClear();
+            _gameController.finish();
+
         }
     }
 

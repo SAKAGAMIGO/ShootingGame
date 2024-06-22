@@ -5,11 +5,11 @@ using UnityEngine;
 public class BossRightCore : MonoBehaviour
 {
     //ゲームオブジェクトを取得
-    public GameObject bulletPrefab;
-    public GameObject Muzzle;
+    public GameObject _bulletPrefab;
+    public GameObject _Muzzle;
 
     //爆発のエフェクト
-    public GameObject explosion;
+    public GameObject _explosion;
 
     //Enemyの最大HP
     float _health = 2000f;
@@ -44,7 +44,7 @@ public class BossRightCore : MonoBehaviour
         if (_health <= 0)
         {
             //破壊のエフェクト
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(_explosion, transform.position, transform.rotation);
             //破壊される
             Destroy(this.gameObject);
         }
@@ -55,8 +55,8 @@ public class BossRightCore : MonoBehaviour
     {
         if (count % 400 == 0)
         {
-            GameObject _bullet = Instantiate(bulletPrefab);
-            _bullet.transform.position = Muzzle.transform.position;
+            GameObject _bullet = Instantiate(_bulletPrefab);
+            _bullet.transform.position = _Muzzle.transform.position;
         }
     }
 
@@ -72,7 +72,7 @@ public class BossRightCore : MonoBehaviour
         {
             _health -= 100f;
             //破壊のエフェクト
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(_explosion, transform.position, transform.rotation);
         }
     }
 

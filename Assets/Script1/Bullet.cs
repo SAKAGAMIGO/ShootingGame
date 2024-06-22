@@ -6,15 +6,16 @@ public class Bullet : MonoBehaviour
 {
 
     //GameControllerの入れ物:AddScoreを使う
-    GameController gameController;
+    GameController _gameController;
     //Bulletのスピード
-    [SerializeField] int bulletSpeed ;
+    [SerializeField] int _bulletSpeed ;
 
-    GameController gameController2 ;
+    GameController _gameController2 ;
+
     private void Start()
     {
         //ヒエラルキー上のObjectを取得
-        gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        _gameController = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
     void Update()
@@ -26,7 +27,7 @@ public class Bullet : MonoBehaviour
     //Bulletを右に飛ばす
     private void Move()
     {
-        transform.position += new Vector3(bulletSpeed, 0, 0) * Time.deltaTime;
+        transform.position += new Vector3(_bulletSpeed, 0, 0) * Time.deltaTime;
     }
 
     //Bulletが画面外に出たら消滅

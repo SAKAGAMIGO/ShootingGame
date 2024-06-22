@@ -5,10 +5,10 @@ using UnityEngine;
 public class BlockManager1 : MonoBehaviour
 {
     //Blockの移動速度
-    [SerializeField] float moveSpeed;
+    [SerializeField] float _moveSpeed;
 
     //爆発のエフェクト
-    public GameObject explosion;
+    public GameObject _explosion;
 
     //Blockの最大HP
     float _health = 900f;
@@ -39,9 +39,11 @@ public class BlockManager1 : MonoBehaviour
         if (_health <= 0)
         {
             //破壊のエフェクト
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(_explosion, transform.position, transform.rotation);
             //破壊される
             Destroy(this.gameObject);
+            //Scoreが加点される
+            _gameController.AddScore();
         }
     }
 
@@ -51,11 +53,13 @@ public class BlockManager1 : MonoBehaviour
     private void Move()
     {
         transform.position +=
-            new Vector3(-moveSpeed, 0, 0) * Time.deltaTime;
-       
+            new Vector3(-_moveSpeed, 0, 0) * Time.deltaTime;
+
     }
 
-    //Blockが画面外に出たら消滅
+    /// <summary>
+    /// Blockが画面外に出たら消滅
+    /// </summary>
     private void OffScreen()
     {
         if (this.transform.position.x < -10f)
@@ -64,6 +68,7 @@ public class BlockManager1 : MonoBehaviour
         }
     }
 
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -71,7 +76,7 @@ public class BlockManager1 : MonoBehaviour
             //Playerにダメージを与える
             collision.gameObject.GetComponent<PlayerManager>().AddDamage(10f);
             //破壊のエフェクト
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(_explosion, transform.position, transform.rotation);
             //破壊される
             Destroy(this.gameObject);
         }
@@ -79,13 +84,5 @@ public class BlockManager1 : MonoBehaviour
         {
             _health -= 100f;
         }
-    }
-
-    /// <summary>
-    /// あああ
-    /// </summary>
-    public void OnDestroy()
-    {
-        //_gameController.AddScore();
     }
 }

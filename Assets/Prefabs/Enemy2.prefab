@@ -134,12 +134,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc304dafbde81243bd56275be7476f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
-  bulletPrefab: {fileID: 262642074509969410, guid: f14e3dd201bd00d4d99bf76d6d5054cb,
+  _moveSpeed: 7
+  _bulletPrefab: {fileID: 262642074509969410, guid: f14e3dd201bd00d4d99bf76d6d5054cb,
     type: 3}
-  Muzzle1: {fileID: 3761668676475256708}
-  Muzzle2: {fileID: 477492055067251313}
-  explosion: {fileID: 1289990519317594133, guid: 443a5492183bde14bb1041523edd94aa,
+  _Muzzle1: {fileID: 3761668676475256708}
+  _Muzzle2: {fileID: 477492055067251313}
+  _explosion: {fileID: 1289990519317594133, guid: 443a5492183bde14bb1041523edd94aa,
     type: 3}
 --- !u!61 &8399876861968913422
 BoxCollider2D:

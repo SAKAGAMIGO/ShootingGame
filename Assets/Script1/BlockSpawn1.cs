@@ -5,11 +5,11 @@ using UnityEngine;
 public class BlockSpawn1 : MonoBehaviour
 {
     //ゲームオブジェクトを取得
-    [SerializeField] GameObject blockPrefab1;
-    [SerializeField] GameObject upeer;
-    [SerializeField] GameObject low;
+    [SerializeField] GameObject _blockPrefab1;
+    [SerializeField] GameObject _upeer;
+    [SerializeField] GameObject _low;
 
-    [SerializeField] float interval;
+    [SerializeField] float _interval;
     float timer;
 
     void Start()
@@ -23,18 +23,21 @@ public class BlockSpawn1 : MonoBehaviour
         //Spawnを2秒間隔で実行
         timer += Time.deltaTime;
 
-        if (timer > interval)
+        if (timer > _interval)
         {
             Spawn();
             timer = 0;
         }
     }
 
+    /// <summary>
+    /// UpeerとLowerの間でランダムなPositionを取得
+    /// </summary>
     private void Spawn()
     {
         //ランダムなx軸を取得
-        Vector2 randomPos = new Vector2(Random.Range(upeer.transform.position.x, low.transform.position.x), Random.Range(upeer.transform.position.y, low.transform.position.y));
-        GameObject _enemy = Instantiate(blockPrefab1);
+        Vector2 randomPos = new Vector2(Random.Range(_upeer.transform.position.x, _low.transform.position.x), Random.Range(_upeer.transform.position.y, _low.transform.position.y));
+        GameObject _enemy = Instantiate(_blockPrefab1);
         _enemy.transform.position = randomPos;
     }
 }

@@ -7,7 +7,7 @@ public class BossSpawn : MonoBehaviour
     [SerializeField] GameObject _bossPrefab;
     [SerializeField] GameObject _bossSpawnPos;
 
-    [SerializeField] float interval;
+    [SerializeField] float _interval;
     float timer;
 
     void Start()
@@ -19,13 +19,14 @@ public class BossSpawn : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer > interval)
+        if (timer > _interval)
         {
             Spawn();
             timer = 0;
         }
     }
 
+    //BossEnemy
     private void Spawn()
     {
         GameObject _enemy = Instantiate(_bossPrefab);
