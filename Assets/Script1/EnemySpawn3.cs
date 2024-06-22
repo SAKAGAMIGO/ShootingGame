@@ -9,29 +9,24 @@ public class EnemySpawn3 : MonoBehaviour
     [SerializeField] GameObject _upeer;
     [SerializeField] GameObject _low;
 
-    private float _interval;
+    float _interval = 10f;
 
-    private float _time = 0f;
-  
+    float _timer = 1;
+
     void Start()
     {
         _interval = 0.2f;
     }
-
     
     void Update()
     {
-        
+        //Spawn‚ð1•bŠÔŠu‚ÅŽÀs
+        _timer += Time.deltaTime;
 
-        _time += Time.deltaTime;
-
-        if (_time > _interval)
+        if (_timer > _interval)
         {
-            GameObject enemy = Instantiate(_enemyPrefab,
-                                           this.transform.position,
-                                           transform.rotation);
-            _time = 0f;
             Spawn();
+            _timer = 0f;
         }
 
     }

@@ -117,7 +117,7 @@ CircleCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 1
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -161,4 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12af63d424f24cc448fd498e1a7dc657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 8
+  _bulletSpeed: 8
+  _explotion: {fileID: 1289990519317594133, guid: 443a5492183bde14bb1041523edd94aa,
+    type: 3}

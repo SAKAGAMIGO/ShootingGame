@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: d0d60d85610a87b4492adb471ec2637a
   - enabled: 1
-    path: Assets/Scenes/ExplanationScene.unity
+    path: Assets/Scenes/OperationScene.unity
     guid: f9d3e9aa2e4d715479fa26186f9d9ab3
   - enabled: 1
     path: Assets/Scenes/ShootingGame.unity

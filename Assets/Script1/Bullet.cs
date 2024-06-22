@@ -10,8 +10,6 @@ public class Bullet : MonoBehaviour
     //Bulletのスピード
     [SerializeField] int _bulletSpeed ;
 
-    GameController _gameController2 ;
-
     private void Start()
     {
         //ヒエラルキー上のObjectを取得
@@ -40,9 +38,9 @@ public class Bullet : MonoBehaviour
     }
 
     //BulletがPlayer以外にぶつかったら実行
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Enemy"))
         { 
             Destroy(this.gameObject) ;
         }

@@ -10,10 +10,12 @@ using System;
 public class GameController : MonoBehaviour
 { 
     public GameObject _gameOverText;
+    public GameObject _gameClearText;
     public Text _scoreText;
     int _score = 0;
 
     private bool _isGameOver;
+    private bool _isGameClear;
 
     //EnemyのSponer
     public GameObject _enemySpawn1;
@@ -33,6 +35,7 @@ public class GameController : MonoBehaviour
 
         //ゲーム起動時にTextを非表示にする
         _gameOverText.SetActive(false);
+        _gameClearText.SetActive(false);
 
         //SCORを表示
         _scoreText.text = "SCORE:" + Environment.NewLine +  _score;
@@ -68,7 +71,9 @@ public class GameController : MonoBehaviour
 
     public  void GameClear()
     {
-        SceneManager.LoadScene("ClearScene");
+        _gameClearText.SetActive(true );
+        _isGameClear = true;
+        //SceneManager.LoadScene("ClearScene");
     }
 
     //GameのRetry

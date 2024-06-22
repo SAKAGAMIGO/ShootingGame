@@ -62,7 +62,7 @@ public class BossLeftCore : MonoBehaviour
     /// </summary>
     private void Shot()
     {
-        if (_interval % 400 == 0)
+        if (_interval % 600 == 0)
         {
             GameObject _bullet = Instantiate(_bulletPrefab);
             _bullet.transform.position = _Muzzle.transform.position;
@@ -70,7 +70,7 @@ public class BossLeftCore : MonoBehaviour
     }
 
     //PlayerÇ…ìñÇΩÇ¡ÇΩÇÁé¿çs
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {

@@ -8,6 +8,8 @@ public class EnemyBullet2 : MonoBehaviour
     //Bulletのスピード
     public int _bulletSpeed = 8;
 
+    public GameObject _explotion;
+
     void Update()
     {
         Move();
@@ -37,9 +39,10 @@ public class EnemyBullet2 : MonoBehaviour
         {
             //Playerにダメージを与える
             collision.gameObject.GetComponent<PlayerManager>().AddDamage(30f);
+            //破壊のエフェクト
+            Instantiate(_explotion);
             //このオブジェクトが破壊される
             Destroy(this.gameObject);
-
         }
     }
 }

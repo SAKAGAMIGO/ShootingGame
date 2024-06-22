@@ -62,7 +62,7 @@ public class BossCenterCore : MonoBehaviour
     /// </summary>
     private void Shot()
     {
-        if (_intrval % 200 == 0)
+        if (_intrval % 300 == 0)
         {
             GameObject _bullet = Instantiate(_bulletPrefab);
             _bullet.transform.position = _Muzzle.transform.position;
@@ -70,7 +70,7 @@ public class BossCenterCore : MonoBehaviour
     }
 
     ///PlayerÇ…ìñÇΩÇ¡ÇΩÇÁé¿çs
-    public void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -85,7 +85,7 @@ public class BossCenterCore : MonoBehaviour
     }
 
     /// <summary>
-    /// Destroy
+    /// DestroyéûÇ…é¿çs
     /// </summary>
     public void OnDestroy()
     {

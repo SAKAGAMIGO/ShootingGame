@@ -7,7 +7,7 @@ public class EnemyBullet1 : MonoBehaviour
     //Bulletのスピード
     public int _bulletSpeed = 8;
 
-   //    public GameController explosion2;
+    public GameObject _explosion;
 
     void Update()
     {
@@ -36,12 +36,12 @@ public class EnemyBullet1 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-           // Instantiate(explosion2,transform.position,transform.rotation);
             //プレイヤーにダメージを与える
             collision.gameObject.GetComponent<PlayerManager>().AddDamage(10f);
+            //破壊のエフェクト
+            Instantiate(_explosion);
             //このオブジェクトが破壊される
             Destroy(this.gameObject);
-
         }
     }
 }

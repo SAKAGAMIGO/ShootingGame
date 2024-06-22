@@ -76,7 +76,7 @@ public class EnemyManager1 : MonoBehaviour
     }
 
     //PlayerÇ…ìñÇΩÇ¡ÇΩÇÁé¿çs
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -92,9 +92,4 @@ public class EnemyManager1 : MonoBehaviour
             _health -= 100f;
         }
     }
-
-    //private void OnDestroy()
-    //{
-    //    _gameController.AddScore();
-    //}
 }

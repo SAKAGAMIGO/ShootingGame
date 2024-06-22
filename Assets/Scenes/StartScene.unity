@@ -285,7 +285,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Shooting Game
+  m_Text: SHOOT NA GAME
 --- !u!222 &294777877
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -364,7 +364,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Explanation
+  m_Text: operation
 --- !u!222 &337911551
 CanvasRenderer:
   m_ObjectHideFlags: 0
