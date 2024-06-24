@@ -21,7 +21,8 @@ public class TimerScript : MonoBehaviour
     public GameObject _blockSpawn2;
     public GameObject _bossSpawn;
 
-
+    AudioSource _audio1;
+    AudioSource _audio2;
 
 
     void Start()
@@ -43,7 +44,6 @@ public class TimerScript : MonoBehaviour
 
     void Update()
     {
-
         //–ˆƒtƒŒ[ƒ€seconds‚ÉTime.deltaTime‚ð‘«‚·
         _seconds += Time.deltaTime;
         //seconds‚ª60•bˆÈã‚É‚È‚Á‚½‚ç
@@ -62,8 +62,11 @@ public class TimerScript : MonoBehaviour
         }
         _oldSeconds = _seconds;
 
-
-
+        if (_minute >= 1 && _seconds >= 6)
+        {
+            _audio1 = GameObject.Find("GameController").GetComponent<AudioSource>();
+            _audio1.Stop();
+        }
     }
     public IEnumerator Timer()
     {

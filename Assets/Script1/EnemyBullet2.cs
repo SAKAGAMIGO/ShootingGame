@@ -38,9 +38,9 @@ public class EnemyBullet2 : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             //Playerにダメージを与える
-            collision.gameObject.GetComponent<PlayerManager>().AddDamage(30f);
+            collision.gameObject.GetComponent<PlayerManager>().AddDamage(10f);
             //破壊のエフェクト
-            Instantiate(_explotion);
+            Instantiate(_explotion,transform.position,transform.rotation);
             //このオブジェクトが破壊される
             Destroy(this.gameObject);
         }

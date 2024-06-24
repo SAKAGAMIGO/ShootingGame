@@ -21,11 +21,8 @@ public class BossManager : MonoBehaviour
     //Boss‚ÌˆÚ“®‘¬“x
     public int _speed = 5;
 
+    //Boss‚ÌˆÚ“®”ÍˆÍ
     Vector3 movePosition;
-
-    GameController _gameController;
-
-    //Rigidbody2D _rigidBody;
 
     //SpriteRenderer‚ðŽæ“¾
     SpriteRenderer _sp;
@@ -39,17 +36,19 @@ public class BossManager : MonoBehaviour
     //“–‚½‚Á‚½‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒO
     bool _isHit;
 
-    
+
+    //component
+    GameController _gameController;
+
 
     void Start()
     {
+        //GameController‚ðŠi”[
         _gameController = GameObject.Find("GameController").GetComponent<GameController>();
-        movePosition = moveRandomPosition();
-
-        //_rigidBody = GameObject.Find("BossEnemy").GetComponent<Rigidbody2D>();
-
-        //SpriteRenderer,BoxCollider2D,CapsuleCollider2D‚ðŠi”[
+        //SpriteRenderer‚ðŠi”[
         _sp = GetComponent<SpriteRenderer>();
+        //“®‚¯‚é”ÍˆÍ‚ðŽw’è
+        movePosition = moveRandomPosition();
     }
 
     void Update()
@@ -58,14 +57,14 @@ public class BossManager : MonoBehaviour
 
         if (_count == 0)
         {
+
             //”š”­‚ÌƒGƒtƒFƒNƒg
             Instantiate(_explotion, transform.position, transform.rotation);
             _decoration.SetActive(false);
             _sp.enabled = false;
+            ////ClerScore‚ð•\Ž¦
             _gameController.finish();
-            //AudioSource audio = this.gameObject.GetComponent<AudioSource>();
-            //audio.Play();
-
+            Destroy(gameObject);
         }
     }
 

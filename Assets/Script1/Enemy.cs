@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
     //Enemyの移動速度
     [SerializeField] int _moveSpeed;
 
-
     //爆発のエフェクト
     public GameObject _explosion;
 
@@ -23,7 +22,6 @@ public class Enemy : MonoBehaviour
         _health -= damage;
     }
 
-
     void Update()
     {
         Move();
@@ -32,7 +30,7 @@ public class Enemy : MonoBehaviour
         if (_health <= 0)
         {
             //Scoreを+100
-            _gameController.AddScore();
+            //_gameController.AddScore();
             //破壊のエフェクト
             Instantiate(_explosion, transform.position, transform.rotation);
             //破壊される

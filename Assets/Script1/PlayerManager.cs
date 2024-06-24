@@ -71,6 +71,7 @@ public class PlayerManager : MonoBehaviour
     {
         //HealthGuageを取得
         _healthGuage = GameObject.FindAnyObjectByType<HealthGuage>();
+
         //Setup時に最大HPを取得
         _healthGuage.Setup(_health);
 
@@ -104,11 +105,11 @@ public class PlayerManager : MonoBehaviour
             Instantiate(explosion, transform.position, transform.rotation);
             //GameOverを判定
             _gameController.GameOver();
-            //Playerを透明にする
-            _sp.enabled = false;
             //Colliderをオフにする
             _bCollider.enabled = false;
             _cCollider.enabled = false;
+            //PlayerをDestroy させる
+            Destroy(gameObject);
         }
     }
 
@@ -171,6 +172,7 @@ public class PlayerManager : MonoBehaviour
             //spriteRendererをオン
             _sp.enabled = true;
         }
+
         //点滅ループが抜けたら当たりフラグをfalse(当たってない状態)
         _isHit = false;
         _bCollider.enabled = true;

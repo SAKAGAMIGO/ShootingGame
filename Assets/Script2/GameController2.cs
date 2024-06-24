@@ -7,9 +7,11 @@ public class GameController2 : MonoBehaviour
 {
     [SerializeField] GameObject titleCanvas;
 
+    AudioSource _audioSource;
+
     void Start()
     {
-       
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,18 +28,36 @@ public class GameController2 : MonoBehaviour
     {
         titleCanvas.SetActive(false);
     }
-    public void Stage1()
+     void Stage1()
     {
-        SceneManager.LoadScene("ShootingGame");
+        SceneChange("ShootingGame");
+    }
+    public void GetStage1()
+    {
+        Invoke(nameof(Stage1),1);
     }
 
-    public void Explanation()
+     void Explanation()
     {
-        SceneManager.LoadScene("ExplanationScene");
+        SceneManager.LoadScene("OperationScene");
+    }
+
+    public void GetExplanation()
+    {
+        Invoke(nameof(Explanation), 1);
     }
 
     public void Title()
     {
         SceneManager.LoadScene("StartScene");
+    }
+
+    public void Audio() 
+    {
+        _audioSource.Play();
+    }
+    void SceneChange(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }

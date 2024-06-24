@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 474880276260486976}
   - component: {fileID: 204487460943038972}
   - component: {fileID: -2130098266399400824}
-  - component: {fileID: 1329723869268743004}
+  - component: {fileID: -2395059166958779075}
   m_Layer: 0
   m_Name: BosEnemy
   m_TagString: Enemy
@@ -141,18 +141,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!82 &1329723869268743004
+--- !u!82 &-2395059166958779075
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 293157819022756416}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 95efba0afd951824d8fe8b93d1212b6a, type: 3}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 4966308a6b4dc7f4895223b9078f2633, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
