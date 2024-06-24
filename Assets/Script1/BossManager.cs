@@ -10,6 +10,7 @@ public class BossManager : MonoBehaviour
     public GameObject _leftCore;
     public GameObject _rightCore;
     public GameObject _decoration;
+    public GameObject _explotion;
 
     //Coreの数
     public int _count;
@@ -24,6 +25,8 @@ public class BossManager : MonoBehaviour
 
     GameController _gameController;
 
+    //Rigidbody2D _rigidBody;
+
     //SpriteRendererを取得
     SpriteRenderer _sp;
 
@@ -36,10 +39,14 @@ public class BossManager : MonoBehaviour
     //当たったかどうかのフラグ
     bool _isHit;
 
+    
+
     void Start()
     {
         _gameController = GameObject.Find("GameController").GetComponent<GameController>();
         movePosition = moveRandomPosition();
+
+        //_rigidBody = GameObject.Find("BossEnemy").GetComponent<Rigidbody2D>();
 
         //SpriteRenderer,BoxCollider2D,CapsuleCollider2Dを格納
         _sp = GetComponent<SpriteRenderer>();
@@ -47,28 +54,33 @@ public class BossManager : MonoBehaviour
 
     void Update()
     {
+        Move();
+
+        if (_count == 0)
+        {
+            //爆発のエフェクト
+            Instantiate(_explotion, transform.position, transform.rotation);
+            _decoration.SetActive(false);
+            _sp.enabled = false;
+            _gameController.finish();
+            //AudioSource audio = this.gameObject.GetComponent<AudioSource>();
+            //audio.Play();
+
+        }
+    }
+
+    private void Move()
+    {
         if (movePosition == _bossPrefab.transform.position)
         {
             movePosition = moveRandomPosition();
         }
         this._bossPrefab.transform.position = Vector3.MoveTowards(_bossPrefab.transform.position, movePosition, _speed * Time.deltaTime);
-
-        if (_count == 0)
-        {
-            //AudioSource audio = this.gameObject.GetComponent<AudioSource>();
-            //audio.Play();
-            _decoration.SetActive(false);
-             _sp.enabled = false;
-            _gameController.finish();
-
-
-        }
-
     }
 
     private Vector3 moveRandomPosition()
     {
-        Vector3 randomPosi = new Vector3(Random.Range(-7, 7), Random.Range(-4, 4), 5);
+        Vector3 randomPosi = new Vector3(Random.Range(-5, 5), Random.Range(-3, 3), 4);
         return randomPosi;
     }
 
@@ -81,7 +93,7 @@ public class BossManager : MonoBehaviour
             return;
         }
         //コルーチンを開始
-        StartCoroutine(_hit());
+        StartCoroutine(_hit()); 
     }
 
     //点滅させる処理

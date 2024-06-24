@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     float _health = 200f;
     public float HP => _health;
 
+    GameController _gameController;
+
     //ダメージを与える
     public void AddDamage(float damage)
     {
@@ -29,6 +31,8 @@ public class Enemy : MonoBehaviour
         //HPが0になったら実行
         if (_health <= 0)
         {
+            //Scoreを+100
+            _gameController.AddScore();
             //破壊のエフェクト
             Instantiate(_explosion, transform.position, transform.rotation);
             //破壊される

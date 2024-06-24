@@ -39,7 +39,7 @@ public class EnemyBullet1 : MonoBehaviour
             //プレイヤーにダメージを与える
             collision.gameObject.GetComponent<PlayerManager>().AddDamage(10f);
             //破壊のエフェクト
-            Instantiate(_explosion);
+            Instantiate(_explosion,transform.position,transform.rotation);
             //このオブジェクトが破壊される
             Destroy(this.gameObject);
         }

@@ -107,10 +107,11 @@ MonoBehaviour:
   _leftCore: {fileID: 7742520307589434919}
   _rightCore: {fileID: 5081570139953924113}
   _decoration: {fileID: 2534359016881849417}
-  _timerObject: {fileID: 0}
+  _explotion: {fileID: 8959097256193253477, guid: 2ac3a3c83fd62d64f93753b2e866add0,
+    type: 3}
   _count: 3
   _bossPrefab: {fileID: 293157819022756416}
-  _speed: 5
+  _speed: 3
   _flashInterval: 0.1
   _loopCount: 6
 --- !u!50 &-2130098266399400824

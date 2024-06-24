@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossBullet1 : MonoBehaviour
 {
     //Bulletのスピード
-    public int _bulletSpeed = 8;
+    public int _bulletSpeed = 6;
 
     void Update()
     {

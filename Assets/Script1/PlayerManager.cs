@@ -4,6 +4,9 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using Cinemachine;
+using Unity.VisualScripting;
+
 
 public class PlayerManager : MonoBehaviour
 {
@@ -59,7 +62,9 @@ public class PlayerManager : MonoBehaviour
     {
         _health -= damage;
         _healthGuage.TakeDamage(damage);
-        
+        var impulseSource = GetComponent<CinemachineImpulseSource>();
+        impulseSource.GenerateImpulse();
+
     }
 
     private void Start()
@@ -93,18 +98,19 @@ public class PlayerManager : MonoBehaviour
 
         }
         Move();
-        //_gameController.AddScore();
-
         if (_health <= 0)
         {
             //破壊のエフェクト
             Instantiate(explosion, transform.position, transform.rotation);
+            //GameOverを判定
             _gameController.GameOver();
-            Destroy(this.gameObject);
+            //Playerを透明にする
+            _sp.enabled = false;
+            //Colliderをオフにする
+            _bCollider.enabled = false;
+            _cCollider.enabled = false;
         }
     }
-
-
 
     //プレイヤーを移動させる関数
     private void Move()
@@ -128,7 +134,6 @@ public class PlayerManager : MonoBehaviour
         {
             y = 0;
         }
-
         //取得した入力値を反映させる
         transform.position += new Vector3(x, y, 0) * Time.deltaTime;
     }
@@ -151,6 +156,9 @@ public class PlayerManager : MonoBehaviour
         //当たりフラグをtrueに変更（当たっている状態）
         _isHit = true;
 
+        _bCollider.enabled = false;
+        _cCollider.enabled = false;
+
         //点滅ループ開始
         for (int i = 0; i < _loopCount; i++)
         {
@@ -158,16 +166,14 @@ public class PlayerManager : MonoBehaviour
             yield return new WaitForSeconds(_flashInterval);
             //spriteRendererをオフ
             _sp.enabled = false;
-
             //flashInterval待ってから
             yield return new WaitForSeconds(_flashInterval);
             //spriteRendererをオン
             _sp.enabled = true;
         }
-
         //点滅ループが抜けたら当たりフラグをfalse(当たってない状態)
         _isHit = false;
+        _bCollider.enabled = true;
+        _cCollider.enabled = true;
     }
-
-
 }

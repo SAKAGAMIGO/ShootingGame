@@ -69,9 +69,10 @@ public class GameController : MonoBehaviour
         _isGameOver = true;
     }
 
+    //GameClearText‚ðŽæ“¾
     public  void GameClear()
     {
-        _gameClearText.SetActive(true );
+        _gameClearText.SetActive(true);
         _isGameClear = true;
         //SceneManager.LoadScene("ClearScene");
     }
