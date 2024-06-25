@@ -37,10 +37,12 @@ public class PlayerManager : MonoBehaviour
     public GameObject Muzzle1;
     public GameObject Muzzle2;
 
+    //爆発エフェクト
     public GameObject explosion;
 
     //Playerの体力
     HealthGuage _healthGuage;
+    AudioSource _audioSource;
 
     //SpriteRendererを取得
     SpriteRenderer _sp;
@@ -71,7 +73,7 @@ public class PlayerManager : MonoBehaviour
     {
         //HealthGuageを取得
         _healthGuage = GameObject.FindAnyObjectByType<HealthGuage>();
-
+        _audioSource = GameObject.Find("GameController").GetComponent<AudioSource>();
         //Setup時に最大HPを取得
         _healthGuage.Setup(_health);
 
@@ -101,6 +103,8 @@ public class PlayerManager : MonoBehaviour
         Move();
         if (_health <= 0)
         {
+            //BGMを止める
+            _audioSource.Stop();
             //破壊のエフェクト
             Instantiate(explosion, transform.position, transform.rotation);
             //GameOverを判定

@@ -62,7 +62,7 @@ public class BossLeftCore : MonoBehaviour
     /// </summary>
     private void Shot()
     {
-        if (_interval % 800 == 0)
+        if (_interval % 600 == 0)
         {
             GameObject _bullet = Instantiate(_bulletPrefab);
             _bullet.transform.position = _Muzzle.transform.position;

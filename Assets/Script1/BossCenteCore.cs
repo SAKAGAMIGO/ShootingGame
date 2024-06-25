@@ -62,7 +62,7 @@ public class BossCenterCore : MonoBehaviour
     /// </summary>
     private void Shot()
     {
-        if (_intrval % 500 == 0)
+        if (_intrval % 300 == 0)
         {
             GameObject _bullet = Instantiate(_bulletPrefab);
             _bullet.transform.position = _Muzzle.transform.position;

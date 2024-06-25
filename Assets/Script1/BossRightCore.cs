@@ -53,7 +53,7 @@ public class BossRightCore : MonoBehaviour
     //BulletÇê∂ê¨
     private void Shot()
     {
-        if (count % 800 == 0)
+        if (count % 600 == 0)
         {
             GameObject _bullet = Instantiate(_bulletPrefab);
             _bullet.transform.position = _Muzzle.transform.position;

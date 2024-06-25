@@ -34,7 +34,7 @@ public class GameController2 : MonoBehaviour
     }
     public void GetStage1()
     {
-        Invoke(nameof(Stage1),1);
+        Invoke(nameof(Stage1),0.5f);
     }
 
      void Explanation()
@@ -44,7 +44,7 @@ public class GameController2 : MonoBehaviour
 
     public void GetExplanation()
     {
-        Invoke(nameof(Explanation), 1);
+        Invoke(nameof(Explanation), 0.5f);
     }
 
     public void Title()
@@ -52,6 +52,10 @@ public class GameController2 : MonoBehaviour
         SceneManager.LoadScene("StartScene");
     }
 
+    public void GetTitle()
+    {
+        Invoke(nameof(Title), 0.5f);
+    }
     public void Audio() 
     {
         _audioSource.Play();

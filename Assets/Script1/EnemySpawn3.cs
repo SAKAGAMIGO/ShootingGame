@@ -15,7 +15,7 @@ public class EnemySpawn3 : MonoBehaviour
 
     void Start()
     {
-        _interval = 0.2f;
+        _interval = 0.1f;
     }
     
     void Update()
