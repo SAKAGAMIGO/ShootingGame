@@ -15,7 +15,7 @@ public class BossManager : MonoBehaviour
     //Coreの数
     public int _count;
 
-    //
+    //ボスのプレハブ
     public GameObject _bossPrefab;
 
     //Bossの移動速度
@@ -91,9 +91,10 @@ public class BossManager : MonoBehaviour
         {
             return;
         }
-        //コルーチンを開始
-        StartCoroutine(_hit()); 
+        //点滅を開始
+        _hit();
     }
+
 
     //点滅させる処理
     IEnumerator _hit()

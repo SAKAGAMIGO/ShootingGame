@@ -37,9 +37,9 @@ public class GameController2 : MonoBehaviour
         Invoke(nameof(Stage1),0.5f);
     }
 
-     void Explanation()
+    public void Explanation()
     {
-        SceneManager.LoadScene("OperationScene");
+        SceneManager.LoadScene("ManualScene");
     }
 
     public void GetExplanation()

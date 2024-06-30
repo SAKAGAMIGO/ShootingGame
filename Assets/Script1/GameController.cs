@@ -62,7 +62,6 @@ public class GameController : MonoBehaviour
         _score += 100;
         _scoreText.text = "SCORE:" + Environment.NewLine + _score;
     }
-
     public void finish()
     {
         //ClerScore‚ð•\Ž¦
@@ -85,7 +84,6 @@ public class GameController : MonoBehaviour
         _canvas.SetActive(true);
         _isGameClear = true;
         _gamePanelText.SetActive(true);
-        //SceneManager.LoadScene("ClearScene");
     }
 
     //Game‚ÌRetry

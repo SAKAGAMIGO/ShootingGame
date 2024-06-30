@@ -58,7 +58,6 @@ public class TimerScript : MonoBehaviour
         if ((int)_seconds != (int)_oldSeconds)
         {
             _timerText.text = _minute.ToString("00") + ":" + ((int)_seconds).ToString("00");
-
         }
         _oldSeconds = _seconds;
 
